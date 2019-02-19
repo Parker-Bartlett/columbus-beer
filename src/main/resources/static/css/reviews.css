@@ -1,0 +1,20 @@
+body{
+    background-color: none;
+    margin: 0;
+    
+  }
+  
+  .article container{
+  
+  }
+  
+  
+  
+  article{
+    text-align: justify;
+    background-color: #eaebec;
+    border-radius: 25px;
+    padding: 3rem;
+  }
+  
+  
