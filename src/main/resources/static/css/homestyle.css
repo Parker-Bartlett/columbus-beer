@@ -1,4 +1,4 @@
-
+@import url("https://use.typekit.net/onm0xcg.css");
 *{
    
 margin:0;
@@ -16,7 +16,11 @@ a{
 }
 
 body{
-   background-color: #eaebec;
+   background-color: #E8E8E8;
+}
+
+li{
+  list-style: none;
 }
 header{
   
@@ -27,7 +31,7 @@ header{
 
 .header__main{
   text-align: center;
-  background: gray;
+  background: #B90504;
   display: flex;
   flex-direction: row;
   height: 4rem;
@@ -38,10 +42,14 @@ header{
 }
 
 .header__nav{
-  color: white;
   display: flex;
-  background-color: maroon;
+  justify-content: space-between;
+  background-color: #333333;
   height: 3rem;
+  padding-top: 5px;
+  padding-bottom: 8px;
+
+box-shadow: 0 4px 7px rgba(0,0,0, 0.4); 
   
 }
 
@@ -56,22 +64,25 @@ header{
   margin-right: 1rem;
 }
 
+.header__nav input[type=text] {
+  border: 1px;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+}
+
+
 .branding{
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 }
 
-.log-in-list{ 
-  display: flex;
-
-
-
+.log-in-list{
 }
 
 .log-in-list_item{
-  display: flex;
-  flex-direction: row;
    margin: auto;
    margin-right: 1rem;
 }
@@ -89,7 +100,10 @@ header{
   margin-right: 0rem;
 }
 
-
+.log-in-button button{
+  background-color: none;
+  
+}
 
 .grid_container{
   
@@ -97,9 +111,14 @@ header{
   grid-column-gap: 8rem;
   grid-template-columns: 1fr 3fr 1fr;
   margin: 2rem;
-  margin-top: 10rem;
-  
-  
+  margin-top: 12rem;
+ 
+}
+
+.section-title{
+  margin-left: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.8rem;
 }
 
 
@@ -113,27 +132,24 @@ header{
 }
 
 article{
- background-color: white;
+ background-color: #F6F6F6;
  
 padding: 3rem;
 border-radius: 10px;
-box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01); 
+box-shadow: 0 2px 2px rgba(0,0,0, 0.2); 
   
 }
 
 .sidebar{
+ background: #F6F6F6;
 border-radius: 10px;
 padding: 3rem;
-border-radius: 6px;
+border-radius: 10px;
 box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
   
 }
 
-.sidebar_left{
-  background: orange;
-  border-radius: 10px;
-  
-}
+
 
 .section-center{
 
@@ -141,16 +157,8 @@ box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
 }
 
 
-.sidebar_right{
-  background: orange;
-  border-radius: 10px;
-  
- 
-  
-}
-
 footer{
-  background: blue;
+  background: #990100;
   height: 4rem;
   width: 100%;
  
