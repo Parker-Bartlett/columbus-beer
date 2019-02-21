@@ -26,14 +26,15 @@ public class HomeController {
 		return "form";
 	}
 
-	@GetMapping("/formresult")
-	public String formResult() {
-		return "formresult";
-	}
 	@PostMapping("/form")
-	public String greetingSubmit(String name, String review) {
-		forms.addForm(new Form(name, review));
+	public String greetingSubmit(String beer, String review) {
+		forms.addForm(new Form(beer, review));
 		return "redirect:/formresult";
 	}
 	
+	@GetMapping("/formresult")
+	public String formResult(Model model) {
+		model.addAttribute("forms", forms.getForms());
+		return "formresult";
+	}
 }

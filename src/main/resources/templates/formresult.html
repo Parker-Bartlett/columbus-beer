@@ -5,9 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Result</h1>
-    <p th:text="'Beer: ' + ${form.beer}" />
-    <p th:text="'Review: ' + ${form.review}" />
-    <a href="/form">Submit another message</a>
+    <h1>Result</h1>
+    <form th:each = "form : ${forms}">
+        <p th:text="'Beer: ' + ${form.beer}" />
+        <p th:text="'Review: ' + ${form.review}" />
+        <a href="/form">Submit another message</a>
+    </form>
 </body>
 </html>
