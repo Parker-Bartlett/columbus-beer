@@ -77,12 +77,14 @@ box-shadow: 0 4px 7px rgba(0,0,0, 0.4);
   margin-left: 1rem;
   margin-top: 0.5rem;
 }
-}
+
 
 .log-in-list{
+  display: flex;
 }
 
 .log-in-list_item{
+   color: white;
    margin: auto;
    margin-right: 1rem;
 }
@@ -100,10 +102,7 @@ box-shadow: 0 4px 7px rgba(0,0,0, 0.4);
   margin-right: 0rem;
 }
 
-.log-in-button button{
-  background-color: none;
-  
-}
+
 
 .grid_container{
   
@@ -131,9 +130,12 @@ box-shadow: 0 4px 7px rgba(0,0,0, 0.4);
   
 }
 
+
+
+
 article{
  background-color: #F6F6F6;
- 
+margin-bottom: 1rem;
 padding: 3rem;
 border-radius: 10px;
 box-shadow: 0 2px 2px rgba(0,0,0, 0.2); 
@@ -158,8 +160,10 @@ box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
 
 
 footer{
+  position: fixed;
+  bottom: 0%;
   background: #990100;
-  height: 4rem;
+  height: 2rem;
   width: 100%;
  
 }
