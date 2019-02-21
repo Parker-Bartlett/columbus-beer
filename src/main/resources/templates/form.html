@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Form Submission</title>
@@ -30,10 +29,10 @@
     </header>
     
     <main>
-        <form action="#" th:action="@{/form}" th:object="${form}" method="post">
-            <p>Beer: <input type="text" th:field="*{beer}" /></p>
-            <p>Review: <input type="text" th:field="*{review}" /></p>
-            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <form action="form" method="POST">
+            <p>Beer: <input type="text"/></p>
+            <p>Review: <input type="text"/></p>
+            <button type="submit">Submit</button>
         </form>
     </main>
     
