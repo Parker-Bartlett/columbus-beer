@@ -16,7 +16,8 @@ public class HomeController {
 	private FormsRepository forms = new FormsRepository(new ArrayList<Form>());
 
 	@RequestMapping("/")
-	public String home() {
+	public String home(Model model) {
+		model.addAttribute("forms", forms.getForms());
 		return "home";
 	}
 
@@ -29,7 +30,7 @@ public class HomeController {
 	@PostMapping("/form")
 	public String greetingSubmit(String beer, String review) {
 		forms.addForm(new Form(beer, review));
-		return "redirect:/formresult";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/formresult")
@@ -37,4 +38,6 @@ public class HomeController {
 		model.addAttribute("forms", forms.getForms());
 		return "formresult";
 	}
+	
+
 }
