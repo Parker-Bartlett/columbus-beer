@@ -31,13 +31,6 @@ public class HomeController {
 	public String greetingSubmit(String beer, String review) {
 		forms.addForm(new Form(beer, review));
 		return "redirect:/";
-	}
-	
-	@GetMapping("/formresult")
-	public String formResult(Model model) {
-		model.addAttribute("forms", forms.getForms());
-		return "formresult";
-	}
-	
+	}	
 
 }

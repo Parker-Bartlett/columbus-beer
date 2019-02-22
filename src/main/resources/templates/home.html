@@ -53,13 +53,10 @@
           <div class="wrapper wrapper_article">
         <article th:each="form : ${forms}">
     
-          <h2 class="article_title">This one got me shit faced </h2>
-          <h3 class="article_author">This one got me shit faced </h3>
-          <h3 class="article_date">2/19/19 </h3>
-          
-          <div class="beer-rating">
-          <h3 class="beer-rating_title">Beer Rating:</h3>
-          <h3 class="beer-rating_score">5</h3>
+          <form th:each = "form : ${forms}">
+        <p th:text="'Beer: ' + ${form.beer}" />
+        <p th:text="'Review: ' + ${form.review}" />
+      </form>
           </div>
             
             <div class="article-content">
