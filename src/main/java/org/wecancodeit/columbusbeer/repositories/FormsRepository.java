@@ -1,29 +1,10 @@
 package org.wecancodeit.columbusbeer.repositories;
 
-import java.util.List;
-
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import org.wecancodeit.columbusbeer.Form;
 
-public class FormsRepository {
-	
-	List<Form> forms;
+@Repository
+public interface FormsRepository extends CrudRepository<Form, Long> {
 
-	public FormsRepository(List<Form> forms) {
-		this.forms = forms;
-	}
-	
-	public void addForm(Form form) {
-		forms.add(form);
-	}
-
-	public List<Form> getForms() {
-		return forms;
-	}
-
-	@Override
-	public String toString() {
-		return "FormsRepository [forms=" + forms + "]";
-	}
-	
-	
 }
