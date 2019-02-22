@@ -1,96 +1,68 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/homestyle.css">
-    <title>LoremBeer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/homestyle.css">
+  <title>LoremBeer</title>
 </head>
-
 <body>
-    
- 
-    <header>
-        <div class="header__main">
-        <div class="branding"><h1>beercolumb.us</h1></div>
-      <ul class="log-in-list"> 
+  <header>
+    <div class="header__main">
+      <div class="branding">
+        <h1>beercolumb.us</h1>
+      </div>
+      <ul class="log-in-list">
         <li class="log-in-list_item">Log In</button></li>
-        
         <li class="log-in-list_item">Sign Up</li>
       </ul>
-      </div>
-      
-      <div class="header__nav">
-        <ul class="nav-list">
+    </div>
+    <div class="header__nav">
+      <ul class="nav-list">
         <li class="nav-list_item"><a href="/">Home</a></li>
-          <li class="nav-list_item"><a href="/reviews.html">Reviews</a></li>
-         <li class="nav-list_item"><a href="/form">Submit Review</a></li>
-        </ul>
-         <input type="text" placeholder="Search...">
-      </div>
-      </header>
-      
-      <main>
-        <div class="container grid_container">
-          <div class="box left">
-           <h2 class="section-title">
-             Stuff Left</h2>
+        <li class="nav-list_item"><a href="/reviews.html">Reviews</a></li>
+        <li class="nav-list_item"><a href="/form">Submit Review</a></li>
+      </ul>
+      <input type="text" placeholder="Search...">
+    </div>
+  </header>
+  <main>
+    <div class="container grid_container">
+      <div class="box left">
+        <h2 class="section-title">
+          Stuff Left</h2>
         <section class="sidebar sidebar_left">
-    Content here
+          Content here
         </section>
-    
-          </div>
-    
-        <div class="box center">
-    
-          <h2 class="section-title">Latest</h2>
-    
+      </div>
+      <div class="box center">
+        <h2 class="section-title">Latest</h2>
         <section class="section section-center">
-    
           <div class="wrapper wrapper_article">
-        <article th:each="form : ${forms}">
-    
-          <form th:each = "form : ${forms}">
-        <p th:text="'Beer: ' + ${form.beer}" />
-        <p th:text="'Review: ' + ${form.review}" />
-      </form>
+            <article th:each="form : ${forms}">
+              <h2 class="article_title" th:text="${form.beer}"></h2>
+              <h3 class="article_author" th:text="${form.title}"></h3>
+              <h4 class="article_date" th:text="${form.date}"></h4>
+              <div class="beer-rating">
+                <h2 class="beer-rating_title" th:text="${form.rating}"></h2>
+              </div>
+              <div class="article-content">
+                <h3 th:text="${form.review}"></h3>
+              </div>
+            </article>
           </div>
-            
-            <div class="article-content">
-     
-              <h3 th:text="${form.review}"></h3>
-    
-            </div>
-        
-      </article>
-          </div> <!--close article wrapper-->
-            
+          <!--close article wrapper-->
         </section>
-          </div>
-        
-          <div class="box right">
-            <h2 class="section-title">Stuff Right</h2>
-          <section class="sidebar sidebar_right">
-          
-            Right
+      </div>
+      <div class="box right">
+        <h2 class="section-title">Stuff Right</h2>
+        <section class="sidebar sidebar_right">
+          Right
         </section>
-          </div>
-          
-        </div>
-        
-        
-        <footer>footer</footer>
-        
-        
-        
-      </main>
-    
-            
-        
-      
+      </div>
+    </div>
+    <footer>footer</footer>
+  </main>
 </body>
-
 </html>

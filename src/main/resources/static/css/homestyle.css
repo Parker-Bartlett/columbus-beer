@@ -126,6 +126,8 @@ box-shadow: 0 4px 7px rgba(0,0,0, 0.4);
 
 
 .wrapper_article{
+  display: flex;
+  flex-direction: column-reverse;
 
   
 }

@@ -28,8 +28,8 @@ public class HomeController {
 	}
 
 	@PostMapping("/form")
-	public String greetingSubmit(String beer, String review) {
-		forms.addForm(new Form(beer, review));
+	public String greetingSubmit(String beer, String review, String title, String date, int rating) {
+		forms.addForm(new Form(beer, review, title, date, rating));
 		return "redirect:/";
 	}	
 
