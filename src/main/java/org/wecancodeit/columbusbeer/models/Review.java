@@ -1,25 +1,27 @@
-package org.wecancodeit.columbusbeer;
+package org.wecancodeit.columbusbeer.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Form {
+public class Review {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String beer;
+	@ManyToOne
+	private Beer beer;
 	@Lob
 	private String review;
 	private String title;
 	private String date;
 	private int rating;
 	
-	public Form() {}
+	public Review() {}
 	
-	public Form(String beer, String review, String title, String date, int rating) {
+	public Review(Beer beer, String review, String title, String date, int rating) {
 		this.beer = beer;
 		this.review = review;
 		this.title = title;
@@ -27,7 +29,7 @@ public class Form {
 		this.rating = rating;
 	}
 	
-	public String getBeer() {
+	public Beer getBeer() {
 		return beer;
 	}
 	

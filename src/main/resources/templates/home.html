@@ -21,8 +21,8 @@
     <div class="header__nav">
       <ul class="nav-list">
         <li class="nav-list_item"><a href="/">Home</a></li>
-        <li class="nav-list_item"><a href="/reviews.html">Reviews</a></li>
-        <li class="nav-list_item"><a href="/form">Submit Review</a></li>
+        <li class="nav-list_item"><a href="/">Reviews</a></li>
+        <li class="nav-list_item"><a href="/review">Submit Review</a></li>
       </ul>
       <input type="text" placeholder="Search...">
     </div>
@@ -40,15 +40,16 @@
         <h2 class="section-title">Latest</h2>
         <section class="section section-center">
           <div class="wrapper wrapper_article">
-            <article th:each="form : ${forms}">
-              <h2 class="article_title" th:text="${form.beer}"></h2>
-              <h3 class="article_author" th:text="${form.title}"></h3>
-              <h4 class="article_date" th:text="${form.date}"></h4>
+            <article th:each="review : ${reviews}">
+              <h2 class="article_title" th:text="${review.title}"></h2>
+              <h3 class="article_author" th:text="${review.beer.beerName}"><span th:text="${review.beer.beerType}"></span></h3>
+              <h4 class="article_date" th:text="${review.date}"></h4>
               <div class="beer-rating">
-                <h2 class="beer-rating_title" th:text="${form.rating}"></h2>
+                <h2 class="beer-rating_title" th:text="${review.rating}"></h2>
               </div>
+              <div class="article_brewery" th:text="${review.beer.brewery}"></div>
               <div class="article-content">
-                <h3 th:text="${form.review}"></h3>
+                <h3 th:text="${review.review}"></h3>
               </div>
             </article>
           </div>

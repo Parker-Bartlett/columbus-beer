@@ -2,9 +2,9 @@ package org.wecancodeit.columbusbeer.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import org.wecancodeit.columbusbeer.Form;
+import org.wecancodeit.columbusbeer.models.Beer;
 
 @Repository
-public interface FormsRepository extends CrudRepository<Form, Long> {
+public interface BeersRepository extends CrudRepository<Beer, Long> {
 
 }
