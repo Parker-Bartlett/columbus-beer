@@ -7,30 +7,30 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.wecancodeit.columbusbeer.Form;
-import org.wecancodeit.columbusbeer.repositories.FormsRepository;
+import org.wecancodeit.columbusbeer.Review;
+import org.wecancodeit.columbusbeer.repositories.ReviewsRepository;
 
 @Controller
 public class HomeController {
 
 	@Resource
-	FormsRepository forms;
+	ReviewsRepository reviews;
 
 	@RequestMapping("/")
 	public String home(Model model) {
-		model.addAttribute("forms", forms.findAll());
+		model.addAttribute("reviews", reviews.findAll());
 		return "home";
 	}
 
-	@GetMapping("/form")
+	@GetMapping("/review")
 	public String greetingForm(Model model) {
-		model.addAttribute("forms", forms.findAll());
-		return "form";
+		model.addAttribute("reviews", reviews.findAll());
+		return "review";
 	}
 
-	@PostMapping("/form")
+	@PostMapping("/review")
 	public String greetingSubmit(String beer, String review, String title, String date, int rating) {
-		forms.save(new Form(beer, review, title, date, rating));
+		reviews.save(new Review(beer, review, title, date, rating));
 		return "redirect:/";
 	}	
 

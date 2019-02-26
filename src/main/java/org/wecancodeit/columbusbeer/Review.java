@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 
 @Entity
-public class Form {
+public class Review {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -17,9 +17,9 @@ public class Form {
 	private String date;
 	private int rating;
 	
-	public Form() {}
+	public Review() {}
 	
-	public Form(String beer, String review, String title, String date, int rating) {
+	public Review(String beer, String review, String title, String date, int rating) {
 		this.beer = beer;
 		this.review = review;
 		this.title = title;
