@@ -7,4 +7,6 @@ import org.wecancodeit.columbusbeer.models.Category;
 @Repository
 public interface CategoriesRepository extends CrudRepository<Category, Long> {
 
+	Category findByBeerType(String beerType);
+
 }

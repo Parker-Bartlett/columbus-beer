@@ -38,13 +38,23 @@ public class HomeController {
 
 	@PostMapping("/review")
 	public String reviewSubmit(Beer beer, String review, String title, String date, int rating, String type, String beerName, String beerType, String brewery) {
-		Category categoryToMake = new Category(beerType);
+		Category categoryToMake = categories.findByBeerType(beerType);
+		if (categoryToMake == null) {
+			categoryToMake = categories.save(new Category(beerType));
+		}
 		categories.save(categoryToMake);
 		Beer beerToMakeReview = new Beer(beerName, categoryToMake, brewery);
 		beers.save(beerToMakeReview);
 		reviews.save(new Review(beerToMakeReview, review, title, date, rating));
 		return "redirect:/";
 	}	
+
+//	type testing
 	
+	@GetMapping("/ales")
+	public String reviewBeerType(Model model) {
+		model.addAttribute("ales", reviews.findAll(beers.findAll(categories.findByBeerType("ales"))));
+		return "ales";
+	}
 	
 }
