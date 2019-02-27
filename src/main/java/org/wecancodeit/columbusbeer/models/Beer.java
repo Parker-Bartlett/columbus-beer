@@ -1,9 +1,12 @@
 package org.wecancodeit.columbusbeer.models;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Beer {
@@ -17,9 +20,27 @@ public class Beer {
 	@ManyToOne
 	private Category category;
 	
+	@OneToMany(mappedBy="beer")
+	private Collection<Review> reviews;
 	
 	
 	
+	
+	public long getId() {
+		return id;
+	}
+
+
+	public Category getCategory() {
+		return category;
+	}
+
+
+	public Collection<Review> getReviews() {
+		return reviews;
+	}
+
+
 	public Beer() {}
 	
 	

@@ -42,7 +42,7 @@ public class HomeController {
 		if (categoryToMake == null) {
 			categoryToMake = categories.save(new Category(beerType));
 		}
-		categories.save(categoryToMake);
+		categoryToMake = categories.save(categoryToMake);
 		Beer beerToMakeReview = new Beer(beerName, categoryToMake, brewery);
 		beers.save(beerToMakeReview);
 		reviews.save(new Review(beerToMakeReview, review, title, date, rating));
@@ -53,8 +53,8 @@ public class HomeController {
 	
 	@GetMapping("/ales")
 	public String reviewBeerType(Model model) {
-		model.addAttribute("ales", reviews.findAll(beers.findAll(categories.findByBeerType("ales"))));
-		return "ales";
+		model.addAttribute("category", categories.findByBeerType("ale"));
+		return "category";
 	}
 	
 }

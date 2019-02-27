@@ -21,6 +21,10 @@ public class Category {
 	
 	public Category() {}
 	
+	public Collection<Beer> getBeers() {
+		return beers;
+	}
+
 	public Category(String beerType) {
 		
 		this.beerType = beerType;
