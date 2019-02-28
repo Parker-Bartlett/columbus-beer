@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.wecancodeit.columbusbeer.models.Beer;
@@ -26,6 +27,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String home(Model model) {
+		model.addAttribute("categories", categories.findAll());
 		model.addAttribute("reviews", reviews.findAll());
 		return "home";
 	}
@@ -51,10 +53,14 @@ public class HomeController {
 
 //	type testing
 	
-	@GetMapping("/ales")
-	public String reviewBeerType(Model model) {
-		model.addAttribute("category", categories.findByBeerType("ale"));
+	@GetMapping("/{id}")
+	public String beerOfSelectedType(@PathVariable Long id, Model model) {
+		model.addAttribute("beers", beers.findAll());
 		return "category";
 	}
+	
+	
+	
+	
 	
 }
