@@ -10,11 +10,10 @@
 <body>
     <h1>cat</h1>
     <div th:each="beer : ${category.beers}">
-        <div th:each="review : ${beer.reviews}">
-            <p>test</p>
-        </div>
+        <p th:text="${beer.beerName}">test</p>
+        
     </div>
 
-    <!-- category spcific posts -->
+    <!-- category specific posts -->
 </body>
 </html>
