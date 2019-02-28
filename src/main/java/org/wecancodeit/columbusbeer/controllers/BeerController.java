@@ -15,11 +15,5 @@ public class BeerController {
 	@Resource
 	BeersRepository beer;
 	@Resource
-	ReviewsRepository review;
-	
-	@GetMapping ("/")
-	public String beer() {
-		return "beer";
-	}
-	
+	ReviewsRepository review;	
 }
