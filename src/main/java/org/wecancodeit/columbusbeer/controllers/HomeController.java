@@ -35,6 +35,7 @@ public class HomeController {
 	@GetMapping("/review")
 	public String review(Model model) {
 		model.addAttribute("reviews", reviews.findAll());
+		model.addAttribute("categories", categories.findAll());
 		return "review";
 	}
 

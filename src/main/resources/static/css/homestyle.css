@@ -107,7 +107,7 @@ box-shadow: 0 4px 7px rgba(0,0,0, 0.4);
 .grid_container{
   
   display: grid;
-  grid-column-gap: 8rem;
+  grid-column-gap: 2rem;
   grid-template-columns: 1fr 3fr 1fr;
   margin: 2rem;
   margin-top: 12rem;
@@ -138,7 +138,7 @@ box-shadow: 0 4px 7px rgba(0,0,0, 0.4);
 article{
  background-color: #F6F6F6;
 margin-bottom: 1rem;
-padding: 3rem;
+padding: 2em;
 border-radius: 10px;
 box-shadow: 0 2px 2px rgba(0,0,0, 0.2); 
   
@@ -168,4 +168,21 @@ footer{
   height: 2rem;
   width: 100%;
  
+}
+
+
+.review-components{
+  display: grid;
+ 
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  margin-bottom: 20px;
+  
+  
+  
+}
+
+
+.article-content{
+  text-align: justify;
 }

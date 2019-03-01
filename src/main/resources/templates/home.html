@@ -47,16 +47,44 @@
         <section class="section section-center">
           <div class="wrapper wrapper_article">
             <article th:each="review : ${reviews}">
-              <h2 class="article_title" th:text="${review.title}"></h2>
-              <h3 class="article_author" th:text="${review.beer.beerName}"><span th:text="${review.beer.beerType}"></span></h3>
-              <h4 class="article_date" th:text="${review.date}"></h4>
-              <div class="beer-rating">
-                <h2 class="beer-rating_title" th:text="${review.rating}"></h2>
+              
+              
+              <h2 class="article_title" th:text="${review.title}">Delicious IPA from Whylan</h2>
+              <h1 class="beer-rating" th:text="${review.rating}">* * * * *</h1>
+              
+              <div class="review-components">
+                
+ 
+    
+            
+               
+              <h4 class="article_beer-name" th:text="|Beer: ${review.beer.beerName}|">Beer: Chasing Mirrors</h4>
+                
+                
+                         
+              <h4 class="article_brewery" th:text="|Brewed by: ${review.beer.brewery}|">Brewed by: Wylam</h4>
+              
+                
+             
+                <h5 th:text="|Style: ${review.beer.beerType}|">Style: IPA</h5>
+              
+              
+                            
+              <h5 class="article_date" th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
+              
+            
+         
               </div>
-              <div class="article_brewery" th:text="${review.beer.brewery}"></div>
+  
+              
               <div class="article-content">
-                <h3 th:text="${review.review}"></h3>
+                <h3 th:text="${review.review}">17.6° Plato OG 1072.2 ABV 7.1%
+ 
+ IPA... Big, bold and creamy with a heavy dose of wheat and flakes backed up with an amalgam of new season tropical hop treats including Citra, Chinook, Centennial and Mosaic. Big,ripe and fleshy with a soft fruit fullness and a pulpy, whipped velvety finish. Now that you know what goes there, what’s to stop you taking it home?</h3>
               </div>
+              
+              
+              
             </article>
           </div>
           <!--close article wrapper-->

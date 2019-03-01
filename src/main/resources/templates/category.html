@@ -34,9 +34,15 @@
         <div class="container grid_container">
           <div class="box left">
             <h2 class="section-title">
-            Stuff Left</h2>
+            Popular Styles</h2>
             <section class="sidebar sidebar_left">
-              Content here
+                <div th:each="type : ${categories}">
+                    <ul>
+                      <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
+                      
+                    
+                    </ul>
+                   </div>
           </section>
       </div>
       <div class="box center">
