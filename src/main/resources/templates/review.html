@@ -3,7 +3,7 @@
 <head>
     <title>Review Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
-    <link rel="stylesheet" href="/css/homestyle.css">
+    <link rel="stylesheet" href="/css/reviewform.css">
 
 
 </head>
@@ -45,13 +45,29 @@
           <div class="wrapper wrapper_article">
             <article>
             <form action="review" method="POST">
-                <p>Beer: <input type="text" name="beerName"/></p>
-                <p>Title: <input type="text" name="title"/></p>
-                <p>Date: <input type="text" name="date"/></p>
-                <p>Rating: <input type="text" name="rating"/></p>
-                <p>Review: <input type="text" name="review"/></p>
-                <p>Type of Beer: <input type="text" name="beerType"/></p>
-                <p>Brewery: <input type="text" name="brewery"/></p>
+                <p>Beer Name: <input type="text" name="beerName"></p>
+              <p>Brewery: <input type="text" name="brewery"></p>
+              <p>Type of Beer (IPA, Lager, etc): <input type="text" name="beerType"></p>
+               
+                <p>Date you drank this: <input type="date" name="date"></p>
+             
+              
+              <div class="row radio">
+                
+                <p>Rate this beer (5 is best):</p> 
+              <p class="radio--item"><input type="radio" name="rating" value="1">1</p>
+              <p class="radio--item"><input type="radio" name="rating" value="2">2</p>
+              <p class="radio--item"><input type="radio" name="rating" value="3">3</p>
+              <p class="radio--item"><input  type="radio" name="rating" value="4">4</p>
+              <p class="radio--item"><input type="radio" name="rating" value="5">5</p>
+              
+              </div>
+            
+              
+               <p>Title your review: <input type="text" name="title"></p>
+                <p>Give us a summary of your experience: <input type="text" name="review"></p>
+                
+                
                 <button type="submit">Submit</button>
             </form>
         </article>

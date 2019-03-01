@@ -21,9 +21,17 @@ public class CategoryContoller {
 	@Resource
 	CategoriesRepository categories;
 
+	
+	@RequestMapping("")
+	public String viewCategory(Model model) {
+	model.addAttribute("categories", categories.findAll());
+	return "/category";
+	}
+	
 @GetMapping("/{id}")
 public String findOneCategory (@PathVariable Long id, Model model) {
 	model.addAttribute("category" , categories.findById(id).get());
+	model.addAttribute("categories", categories.findAll());
 	return "category";
 	
 }
