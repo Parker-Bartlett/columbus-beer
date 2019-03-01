@@ -3,7 +3,7 @@
 <head>
     <title>Review Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
-    <link rel="stylesheet" href="/css/homestyle.css">
+    <link rel="stylesheet" href="/css/reviewform.css">
 
 
 </head>
@@ -34,25 +34,69 @@
         <div class="container grid_container">
           <div class="box left">
             <h2 class="section-title">
-            Stuff Left</h2>
+            Popular Styles</h2>
             <section class="sidebar sidebar_left">
-              Content here
+              <div th:each="type : ${categories}">
+        	<ul>
+        		<li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
+        		
+        	
+        	</ul>
+         </div>
           </section>
       </div>
       <div class="box center">
-        <h2 class="section-title">Latest</h2>
+        <h2 class="section-title">Create your review</h2>
         <section class="section section-center">
           <div class="wrapper wrapper_article">
-            <article>
+            <article class="article form">
             <form action="review" method="POST">
-                <p>Beer: <input type="text" name="beerName"/></p>
-                <p>Title: <input type="text" name="title"/></p>
-                <p>Date: <input type="text" name="date"/></p>
-                <p>Rating: <input type="text" name="rating"/></p>
-                <p>Review: <input type="text" name="review"/></p>
-                <p>Type of Beer: <input type="text" name="beerType"/></p>
-                <p>Brewery: <input type="text" name="brewery"/></p>
-                <button type="submit">Submit</button>
+              
+   <ul class ="form-list">
+     <div class="margin-bottom"> 
+
+     <li class="form-list--item"> <p>Beer Name:</li> 
+     <li class="form-list--item"><input type="text" name="beerName"></p> </li>
+     </div>
+              <div class="margin-bottom">
+              <li class="form-list--item"><p>Brewery:</li>
+              <li class="form-list--item"><input type="text" name="brewery"></p></li>
+              </div>
+            
+              
+              <div class="margin-bottom">
+          <li class="form-list--item"> <p>Type of Beer (IPA, Lager, etc):</li>
+          <li class="form-list--item"><input type="text" name="beerType"></p></li>
+          </div>
+        
+              <div class="margin-bottom"> 
+          <li class="form-list--item"> <p>Date you drank this: </li>
+          <li class="form-list--item"><input type="date" name="date"></p></li>
+      </div>
+          
+              <div class="margin-bottom"> 
+              <li class="form-list--item"> <p>Rate this beer (5 is best):</p> </li>
+              <li class="form-list--item"><div class="row radio">
+              <p class="radio--item"><input type="radio" name="rating" value="1">1</p>
+              <p class="radio--item"><input type="radio" name="rating" value="2">2</p>
+              <p class="radio--item"><input type="radio" name="rating" value="3">3</p>
+              <p class="radio--item"><input  type="radio" name="rating" value="4">4</p>
+              <p class="radio--item"><input type="radio" name="rating" value="5">5</p>
+              
+                </div></li></div>
+            
+              <div class="margin-bottom"> 
+  <li class="form-list--item"><p>Title your review:</li>
+  <li class="form-list--item"><input type="text" name="title"></p></li>
+  </div>
+  <div class="margin-bottom"> 
+<li class="form-list--item"><p>Give us a summary of your experience: </li>
+<li class="form-list--item"><input type="text" name="review"></p></li>
+</div>
+                <div class="margin-bottom"> 
+     <li class="form-list--item"> <button type="submit">Submit</button></li>
+</div>
+              </ul>
             </form>
         </article>
         </div>

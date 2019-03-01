@@ -25,16 +25,26 @@ public class Initializer implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Category category = catRepo.save(new Category("ale"));
+		Category ipa = catRepo.save(new Category("IPA"));
+		Category stout = catRepo.save(new Category("Stout"));
 		
-		Beer beer = beerRepo.save(new Beer("Budlight", category, "Bud"));
-		reviewsRepo.save(new Review(beer, "Great", "Title", "Date", 5));
 		
-		Beer beer2 = beerRepo.save(new Beer("Natty Light", category, "Natty"));
-		reviewsRepo.save(new Review(beer2, "Great", "Title", "Date", 5));
+		Beer beer = beerRepo.save(new Beer("Chasing Mirrors", ipa, "Wylan"));
+		reviewsRepo.save(new Review(beer, "17.6° Plato OG 1072.2 ABV 7.1% IPA... Big, bold and creamy with a heavy dose of wheat and flakes backed up with an amalgam of new season tropical hop treats including Citra, Chinook, Centennial and Mosaic. Big,ripe and fleshy with a soft fruit fullness and a pulpy, whipped velvety finish. Now that you know what goes there, what’s to stop you taking it home?"
+				+ "", "Delicious brew from Wylan!", "2/22/19", 5));
 		
-	}
-	
+		Beer beer2 = beerRepo.save(new Beer("Russian River Pliny the Younger", ipa, "Russian River Brewing"));
+		reviewsRepo.save(new Review(beer2, "10 oz pour on tap at Blue Palms Brewhouse (unfortunately, it kicked later than night so no more--maybe next year!). Appearance is lightly hazy yellow with nice sparkle, thin cap of white head with fair retention and trace leggy lacing. Aroma is strong pine, grapefruit, citrus. Taste is strong grapefruit, pine, lighter tropical fruit and citrus. Palate is medium bodied with smooth, thick texture, soft carbonation and fairly dry, crisp finish as taste, dominated by a pleasant grapefruit/piney bitterness. Overall, very, very nice. Bold aroma and flavor but not quite as complex as Elder. It's no wonder these two…\n" + 
+				"", "Very wet beer!", "2019/2/28", 4));
+		
+	Beer beer3 = beerRepo.save(new Beer("Mikkeller Beer Geek Breakfast", stout, "Mikkeller"));
+	reviewsRepo.save(new Review(beer3, "Deep black body with a small, vanishing brown head. Aroma of burnt coffee, vanille, endive. Taste is burnt coffee grounds, grass. Long bitter finish. Medium body, soft carbonation, oily texture\n" 
+					+ "",  "My new favorite", "2/23/19", 5));		
+}
+
+
+
+
 }
 
 
