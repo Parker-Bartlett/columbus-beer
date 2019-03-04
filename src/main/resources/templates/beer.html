@@ -46,24 +46,14 @@
           </section>
       </div>
       <div class="box center">
-        <h2 th:text="${category.beerType}" class="section-title">Default Text</h2>
+        <h2 th:text="${beer.beerName}" class="section-title">Default Text</h2>
         <section class="section section-center">
           <div class="wrapper wrapper_article">
-
-
-
             <article>
-
-                <div th:each="beer : ${category.beers}">
-
-                  <a th:href="@{|/beer/${beer.id}|}" th:text="${beer.beerName}"></a>
-
+                <div th:each="review : ${beer.reviews}">
+                  <p th:text="${beer.beerName}"></p>
                 </div>
-
-
-
-
-        </article>
+      </article>
         </div>
         <!--close article wrapper-->
     </section>
