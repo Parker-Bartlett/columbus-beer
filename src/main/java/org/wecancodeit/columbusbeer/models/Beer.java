@@ -13,7 +13,7 @@ public class Beer {
 	
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	private String beerName;
 	private String brewery;
 	
@@ -26,7 +26,7 @@ public class Beer {
 	
 	
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
