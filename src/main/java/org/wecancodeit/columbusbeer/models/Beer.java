@@ -1,12 +1,15 @@
 package org.wecancodeit.columbusbeer.models;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
 
 @Entity
 public class Beer {
@@ -24,7 +27,8 @@ public class Beer {
 	@OneToMany(mappedBy="beer")
 	private Collection<Review> reviews;
 	
-	
+	@ManyToMany
+	private Collection<Tag> tags;
 	
 	
 	public Long getId() {
@@ -45,10 +49,12 @@ public class Beer {
 	public Beer() {}
 	
 	
-	public Beer(String beerName, Category category, String brewery) {
+	public Beer(String beerName, Category category, String brewery, Tag ...tags) {
 		this.beerName = beerName;
 		this.category = category;
 		this.brewery = brewery;
+		this.tags = Arrays.asList(tags);
+		
 	}
 
 	public String getBeerName() {
@@ -83,5 +89,16 @@ public class Beer {
 		}
 		float beerOverallRating = (sum / reviews.size());
 		return beerOverallRating;
+	}
+
+
+	public void addTagToTags(Tag tag) {
+		tags.add(tag);
+	}
+	
+	
+
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 }

@@ -52,6 +52,21 @@
             <article>
               <p th:text="${beer.beerName}"></p>
               <p th:text="${beer.getBeerOverallRating()}"></p>
+              
+              <!--<p th:each="tags live here"></p>-->
+              </p>
+
+              <form class="tag-form" th:action="|/beer/${beer.id}|" method="POST">
+              
+               
+                    <li class="form-list--item"> <p>Tasting note: </li>
+                    <li class="form-list--item"><input type="text" name="tagName"></p></li>
+                    <li class="form-list--item"> <button type="submit">Submit</button></li>
+          
+                
+
+              </form>
+
           </article>
       </div>
       <!--close article wrapper-->
