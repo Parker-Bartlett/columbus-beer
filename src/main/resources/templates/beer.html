@@ -1,78 +1,77 @@
 <!DOCTYPE HTML>
 
 <head>
-    <title>Review Submission</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="/css/homestyle.css">
+  <title>Review Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="/css/homestyle.css">
 
 
 </head>
 
 <body>
-    <header>
-        <div class="header__main">
-            <div class="branding">
-                <h1>loremBeer</h1>
-            </div>
-            <ul class="log-in-list">
-                <li class="log-in-list_item">Log In</li>
-                <li class="log-in-list_item">Sign Up</li>
+  <header>
+    <div class="header__main">
+      <div class="branding">
+        <h1>loremBeer</h1>
+      </div>
+      <ul class="log-in-list">
+        <li class="log-in-list_item">Log In</li>
+        <li class="log-in-list_item">Sign Up</li>
+      </ul>
+    </div>
+
+    <div class="header__nav">
+      <ul class="nav-list">
+        <li class="nav-list_item"><a href="/">Home</a></li>
+        <li class="nav-list_item"><a href="/">Reviews</a></li>
+        <li class="nav-list_item"><a href="/review">Submit Review</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="container grid_container">
+      <div class="box left">
+        <h2 class="section-title">
+          Popular Styles</h2>
+        <section class="sidebar sidebar_left">
+          <div th:each="type : ${categories}">
+            <ul>
+              <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
+
+
             </ul>
-        </div>
-
-        <div class="header__nav">
-            <ul class="nav-list">
-                <li class="nav-list_item"><a href="/">Home</a></li>
-                <li class="nav-list_item"><a href="/">Reviews</a></li>
-                <li class="nav-list_item"><a href="/review">Submit Review</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main>
-
-        <div class="container grid_container">
-          <div class="box left">
-            <h2 class="section-title">
-            Popular Styles</h2>
-            <section class="sidebar sidebar_left">
-                <div th:each="type : ${categories}">
-                    <ul>
-                      <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
-
-
-                    </ul>
-                   </div>
-          </section>
+          </div>
+        </section>
       </div>
       <div class="box center">
-        <h2 th:text="${beer.beerName}" class="section-title">Default Text</h2>
+        <h2 th:text="|${beer.beerName}, by ${beer.brewery}|" class="section-title">Default Text</h2>
         <section class="section section-center">
           <div class="wrapper wrapper_article">
             <article>
-                <div th:each="review : ${beer.reviews}">
-                  <p th:text="${beer.beerName}"></p>
-                </div>
-      </article>
-        </div>
-        <!--close article wrapper-->
-    </section>
-</div>
-<div class="box right">
-    <h2 class="section-title">Stuff Right</h2>
-    <section class="sidebar sidebar_right">
-      Right
-  </section>
-</div>
-</div>
-<footer>footer</footer>
+              <p th:text="${beer.beerName}"></p>
+              <p th:text="${beer.getBeerOverallRating()}"></p>
+          </article>
+      </div>
+      <!--close article wrapper-->
+      </section>
+    </div>
+    <div class="box right">
+      <h2 class="section-title">Stuff Right</h2>
+      <section class="sidebar sidebar_right">
+        Right
+      </section>
+    </div>
+    </div>
+    <footer>footer</footer>
 
 
 
 
 
 
-</main>
+  </main>
 
 </body>
 

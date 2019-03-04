@@ -16,6 +16,7 @@ public class Beer {
 	private Long id;
 	private String beerName;
 	private String brewery;
+	private float beerOverallRating;
 	
 	@ManyToOne
 	private Category category;
@@ -62,10 +63,25 @@ public class Beer {
 	public String getBrewery() {
 		return brewery;
 	}
+	
+	
+	
+	
 
 	@Override
 	public String toString() {
 		String style = category.getBeerType();
 		return "Beer [beerName=" + beerName + ", beerType=" + style + ", brewery=" + brewery + "]";
+	}
+	
+
+	
+	public float getBeerOverallRating() {
+		float sum = 0;
+		for(Review review : reviews) {	
+			sum += review.getRating();
+		}
+		float beerOverallRating = (sum / reviews.size());
+		return beerOverallRating;
 	}
 }
