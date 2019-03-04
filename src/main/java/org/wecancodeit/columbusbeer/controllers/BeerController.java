@@ -33,6 +33,7 @@ public class BeerController {
 	public String singleBeer(@PathVariable Long id, Model model) {
 		model.addAttribute("beer", beers.findById(id).get());
 		model.addAttribute("categories", categories.findAll());
+		model.addAttribute("review", reviews.findAll());
 		return "beer";
 	}
 

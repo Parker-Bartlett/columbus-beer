@@ -14,6 +14,11 @@ public class Tag {
 	private Long id;
 	private String tagName;
 	
+
+	public Collection<Beer> getBeers() {
+		return beers;
+	}
+
 	@ManyToMany
 	private Collection<Beer> beers;
 	
@@ -22,6 +27,11 @@ public class Tag {
 	public Tag(String stringOfTags) {
 		this.tagName = stringOfTags;
 		
+	}
+	
+	
+	public String getTagName() {
+		return tagName;
 	}
 
 	public Long getId() {
