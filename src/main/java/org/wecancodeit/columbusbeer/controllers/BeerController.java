@@ -6,26 +6,50 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.wecancodeit.columbusbeer.models.Beer;
+import org.wecancodeit.columbusbeer.models.Tag;
 import org.wecancodeit.columbusbeer.repositories.BeersRepository;
 import org.wecancodeit.columbusbeer.repositories.CategoriesRepository;
 import org.wecancodeit.columbusbeer.repositories.ReviewsRepository;
+import org.wecancodeit.columbusbeer.repositories.TagsRepository;
 
 @Controller
 @RequestMapping("/beer")
 public class BeerController {
 
 	@Resource
-	BeersRepository beer;
+	BeersRepository beers;
 	@Resource
-	ReviewsRepository review;
+	ReviewsRepository reviews;
 	@Resource
-	CategoriesRepository category;
+	CategoriesRepository categories;
+	@Resource
+	TagsRepository tags;
+	
 
 	@GetMapping("/{id}")
 	public String singleBeer(@PathVariable Long id, Model model) {
-		model.addAttribute("beer", beer.findById(id).get());
+		model.addAttribute("beer", beers.findById(id).get());
+		model.addAttribute("categories", categories.findAll());
+		model.addAttribute("review", reviews.findAll());
 		return "beer";
 	}
 
+	@PostMapping("/{id}")
+	public String submitTagName(@PathVariable Long id, String tagName) {
+		Tag tagToSave = tags.findByTagName(tagName);
+		
+		if(tagToSave == null) {
+			tagToSave = tags.save(new Tag(tagName));
+			Beer beerToTag = beers.findById(id).get();
+			beerToTag.addTagToTags(tagToSave);
+			beers.save(beerToTag);
+		}
+
+		return "redirect:/beer/" +id;
+		
+	}
+	
 }
