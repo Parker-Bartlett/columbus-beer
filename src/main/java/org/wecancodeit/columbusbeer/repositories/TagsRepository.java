@@ -7,4 +7,6 @@ import org.wecancodeit.columbusbeer.models.Tag;
 @Repository
 public interface TagsRepository extends CrudRepository<Tag, Long>{
 
+	Tag findByTagName(String tagName);
+
 }

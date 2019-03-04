@@ -39,10 +39,15 @@ public class BeerController {
 
 	@PostMapping("/{id}")
 	public String submitTagName(@PathVariable Long id, String tagName) {
-		Tag tagToSave = tags.save(new Tag(tagName));
-		Beer beerToTag = beers.findById(id).get();
-		beerToTag.addTagToTags(tagToSave);
-		beers.save(beerToTag);
+		Tag tagToSave = tags.findByTagName(tagName);
+		
+		if(tagToSave == null) {
+			tagToSave = tags.save(new Tag(tagName));
+			Beer beerToTag = beers.findById(id).get();
+			beerToTag.addTagToTags(tagToSave);
+			beers.save(beerToTag);
+		}
+
 		return "redirect:/beer/" +id;
 		
 	}
