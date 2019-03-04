@@ -46,9 +46,13 @@ public class HomeController {
 			categoryToMake = categories.save(new Category(beerType));
 		}
 		categoryToMake = categories.save(categoryToMake);
-		Beer beerToMakeReview = new Beer(beerName, categoryToMake, brewery);
-		beers.save(beerToMakeReview);
-		reviews.save(new Review(beerToMakeReview, review, title, date, rating));
+		
+		Beer beerToMake = beers.findByBeerNameAndBrewery(beerName, brewery);
+		if (beerToMake == null) {
+		beerToMake = beers.save(new Beer(beerName, categoryToMake, brewery));
+		}
+		beerToMake = beers.save(beerToMake);
+		reviews.save(new Review(beerToMake, review, title, date, rating));
 		return "redirect:/";
 	}	
 
