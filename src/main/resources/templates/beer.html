@@ -52,67 +52,17 @@
             <article>
               <p th:text="${beer.beerName}"></p>
               <p th:text="${beer.getBeerOverallRating()}"></p>
-
-              <!--<p th:each="tags live here"></p>-->
-              <ul th:each="tag : ${beer.tags}"</ul>
-                <li th:text="${tag.tagName}">beer tag</li>
-                </ul>
-
-              <form class="tag-form" th:action="|/beer/${beer.id}|" method="POST">
-
-
-                <li class="form-list--item">
-                  <p>Tasting note:</p>
-                </li>
-                <li class="form-list--item"><input type="text" name="tagName"></p>
-                </li>
-                <li class="form-list--item"> <button type="submit">Submit</button></li>
-
-
-
-              </form>
-
-            </article>
-          </div>
-          <div class="wrapper wrapper_article">
-            <article th:each="review : ${beer.reviews}">
-
-
-              <h2 class="article_title" th:text="${review.title}">Delicious IPA from Whylan</h2>
-              <h1 class="beer-rating" th:text="${review.rating}">* * * * *</h1>
-
-              <div class="review-components">
-
-
-                <h5 class="article_date" th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
-
-
-
-              </div>
-
-
-              <div class="article-content">
-                <h3 th:text="${review.review}">17.6° Plato OG 1072.2 ABV 7.1%
-
-                  IPA... Big, bold and creamy with a heavy dose of wheat and flakes backed up with an amalgam of new
-                  season tropical hop treats including Citra, Chinook, Centennial and Mosaic. Big,ripe and fleshy with a
-                  soft fruit fullness and a pulpy, whipped velvety finish. Now that you know what goes there, what’s to
-                  stop you taking it home?</h3>
-              </div>
-
-
-
-            </article>
-          </div>
-          <!--close article wrapper-->
-        </section>
+          </article>
       </div>
-      <div class="box right">
-        <h2 class="section-title">Stuff Right</h2>
-        <section class="sidebar sidebar_right">
-          Right
-        </section>
-      </div>
+      <!--close article wrapper-->
+      </section>
+    </div>
+    <div class="box right">
+      <h2 class="section-title">Stuff Right</h2>
+      <section class="sidebar sidebar_right">
+        Right
+      </section>
+    </div>
     </div>
     <footer>footer</footer>
 

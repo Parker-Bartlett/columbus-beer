@@ -40,7 +40,7 @@ public class HomeController {
 	}
 
 	@PostMapping("/review")
-	public String reviewSubmit(Beer beer, String review, String title, String date, int rating, String type, String beerName, String beerType, String brewery, String tags) {
+	public String reviewSubmit(Beer beer, String review, String title, String date, int rating, String type, String beerName, String beerType, String brewery) {
 		Category categoryToMake = categories.findByBeerType(beerType);
 		if (categoryToMake == null) {
 			categoryToMake = categories.save(new Category(beerType));
