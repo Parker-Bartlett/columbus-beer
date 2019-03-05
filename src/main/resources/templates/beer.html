@@ -24,7 +24,7 @@
       <ul class="nav-list">
         <li class="nav-list_item"><a href="/">Home</a></li>
         <li class="nav-list_item"><a href="/">Reviews</a></li>
-        <li class="nav-list_item"><a href="/review">Submit Review</a></li>
+        <li class="nav-list_item"><a href="/review/submit">Submit Review</a></li>
       </ul>
     </div>
   </header>
@@ -78,7 +78,7 @@
             <article th:each="review : ${beer.reviews}">
 
 
-              <h2 class="article_title" th:text="${review.title}">Delicious IPA from Whylan</h2>
+              <a th:href="@{|review/${review.id}|}"><h2 class="article_title" th:text="${review.title}">Delicious IPA from Whylan</h2></a>
               <h1 class="beer-rating" th:text="${review.rating}">* * * * *</h1>
 
               <div class="review-components">

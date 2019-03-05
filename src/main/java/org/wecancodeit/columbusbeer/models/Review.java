@@ -45,4 +45,8 @@ public class Review {
 	public int getRating() {
 		return rating;
 	}
+
+	public Long getId() {
+		return id;
+	}
 }
