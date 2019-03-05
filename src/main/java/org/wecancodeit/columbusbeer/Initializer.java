@@ -37,8 +37,8 @@ public class Initializer implements CommandLineRunner {
 		reviewsRepo.save(new Review(beer2, "10 oz pour on tap at Blue Palms Brewhouse (unfortunately, it kicked later than night so no more--maybe next year!). Appearance is lightly hazy yellow with nice sparkle, thin cap of white head with fair retention and trace leggy lacing. Aroma is strong pine, grapefruit, citrus. Taste is strong grapefruit, pine, lighter tropical fruit and citrus. Palate is medium bodied with smooth, thick texture, soft carbonation and fairly dry, crisp finish as taste, dominated by a pleasant grapefruit/piney bitterness. Overall, very, very nice. Bold aroma and flavor but not quite as complex as Elder. It's no wonder these two…\n" + 
 				"", "Very wet beer!", "2019/2/28", 4));
 		
-	Beer beer3 = beerRepo.save(new Beer("Mikkeller Beer Geek Breakfast", stout, "Mikkeller"));
-	reviewsRepo.save(new Review(beer3, "Deep black body with a small, vanishing brown head. Aroma of burnt coffee, vanille, endive. Taste is burnt coffee grounds, grass. Long bitter finish. Medium body, soft carbonation, oily texture\n" 
+		Beer beer3 = beerRepo.save(new Beer("Mikkeller Beer Geek Breakfast", stout, "Mikkeller"));
+		reviewsRepo.save(new Review(beer3, "Deep black body with a small, vanishing brown head. Aroma of burnt coffee, vanille, endive. Taste is burnt coffee grounds, grass. Long bitter finish. Medium body, soft carbonation, oily texture\n" 
 					+ "",  "My new favorite", "2/23/19", 5));		
 }
 
