@@ -63,13 +63,20 @@
                                 <form class="create-comment" th:action="|/review/${review.id}|" method="POST">
                                     <h2>Comment</h2>
                                     <input type="text" name="userComment">
+                                    <button type="submit">Submit</button>
                                 </form>
                             </div>
                         </article>
+
                     </div>
+                    <article th:each="comment : ${review.comments}"> 
+                        <p th:text="${comment.comment}"></p>
+
+                    </article>
                     <!--close article wrapper-->
                 </section>
             </div>
+
             <div class="box right">
                 <h2 class="section-title">Stuff Right</h2>
                 <section class="sidebar sidebar_right">
