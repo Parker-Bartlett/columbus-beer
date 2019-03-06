@@ -61,6 +61,7 @@ public class ReviewController {
 	@GetMapping("/{id}")
 	public String singleReview(@PathVariable Long id, Model model) {
 		model.addAttribute("review", reviews.findById(id).get());
+		model.addAttribute("categories", categories.findAll());
 		return "review";
 	}
 	
