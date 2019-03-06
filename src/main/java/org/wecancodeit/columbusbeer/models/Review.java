@@ -20,6 +20,7 @@ public class Review {
 	private String review;
 	private String title;
 	private String date;
+	private String ratingImg;
 	private int rating;
 	@OneToMany(mappedBy="review")
 	private Collection<Comment> comments;
@@ -58,6 +59,7 @@ public class Review {
 	public Long getId() {
 		return id;
 	}
+
 
 	public void addComment(Comment comment) {
 		comments.add(comment);

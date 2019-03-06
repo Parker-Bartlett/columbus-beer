@@ -50,8 +50,12 @@
               
               
               <a th:href="@{|review/${review.id}|}"><h2 class="article_title" th:text="${review.title}">Delicious IPA from Whylan</h2></a>
-              <h1 class="beer-rating" th:text="${review.rating}">* * * * *</h1>
-              
+              <div th:switch="${review.rating}">
+                <figure class="beer-rating-icon" th:case="1"><img src="/images/1star.png"></figure>
+                <figure class="beer-rating-icon" th:case="2"><img src="/images/2star.png"></figure>
+                <figure class="beer-rating-icon" th:case="3"><img src="/images/3star.png"></figure>
+                <figure class="beer-rating-icon" th:case="4"><img src="/images/4star.png"></figure>
+                <figure class="beer-rating-icon" th:case="5"><img src="/images/5star.png"></figure>
               <div class="review-components">
                 
  
