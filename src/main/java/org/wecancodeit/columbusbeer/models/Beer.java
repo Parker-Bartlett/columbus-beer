@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -20,6 +21,8 @@ public class Beer {
 	private String beerName;
 	private String brewery;
 	private float beerOverallRating;
+	@Lob
+	private String imgUrl;
 	
 	@ManyToOne
 	private Category category;
@@ -49,13 +52,20 @@ public class Beer {
 	public Beer() {}
 	
 	
-	public Beer(String beerName, Category category, String brewery, Tag ...tags) {
+	public Beer(String beerName, Category category, String brewery, String imgUrl, Tag ...tags) {
 		this.beerName = beerName;
 		this.category = category;
 		this.brewery = brewery;
+		this.imgUrl = imgUrl;
 		this.tags = Arrays.asList(tags);
 		
 	}
+
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
 
 	public String getBeerName() {
 		return beerName;
@@ -73,10 +83,14 @@ public class Beer {
 	
 	
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		String style = category.getBeerType();
-		return "Beer [beerName=" + beerName + ", beerType=" + style + ", brewery=" + brewery + "]";
+		return "Beer [id=" + id + ", beerName=" + beerName + ", brewery=" + brewery + ", beerOverallRating="
+				+ beerOverallRating + ", imgUrl=" + imgUrl + ", category=" + category + ", reviews=" + reviews
+				+ ", tags=" + tags + "]";
 	}
 	
 
