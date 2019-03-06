@@ -42,7 +42,7 @@ public class ReviewController {
 
 	@PostMapping("/submit")
 	public String reviewSubmit(Beer beer, String review, String title, String date, int rating, String type,
-			String beerName, String beerType, String brewery, String tags) {
+			String beerName, String beerType, String brewery, String imgUrl, String tags) {
 		Category categoryToMake = categories.findByBeerType(beerType);
 		if (categoryToMake == null) {
 			categoryToMake = categories.save(new Category(beerType));
@@ -51,7 +51,7 @@ public class ReviewController {
 
 		Beer beerToMake = beers.findByBeerNameAndBrewery(beerName, brewery);
 		if (beerToMake == null) {
-			beerToMake = beers.save(new Beer(beerName, categoryToMake, brewery));
+			beerToMake = beers.save(new Beer(beerName, categoryToMake, brewery, imgUrl));
 		}
 		beerToMake = beers.save(beerToMake);
 		reviews.save(new Review(beerToMake, review, title, date, rating));
