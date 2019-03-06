@@ -39,8 +39,6 @@
           <div th:each="type : ${categories}">
             <ul>
               <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
-
-
             </ul>
           </div>
         </section>
@@ -86,7 +84,7 @@
 
                 <h5 class="article_date" th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
 
-
+                <figure class="beer-img"><img th:src="${review.beer.imgUrl}" alt="user submitted image of beer"></figure>
 
               </div>
 

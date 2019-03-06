@@ -186,3 +186,8 @@ footer{
 .article-content{
   text-align: justify;
 }
+
+.beer-img img{
+  width:150px;
+  height: auto;
+}

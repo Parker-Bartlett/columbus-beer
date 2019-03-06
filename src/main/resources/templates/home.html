@@ -64,7 +64,7 @@
                          
               <h4 class="article_brewery" th:text="|Brewed by: ${review.beer.brewery}|">Brewed by: Wylam</h4>
               
-                
+              
              
                 <h5 th:text="|Style: ${review.beer.beerType}|">Style: IPA</h5>
               
@@ -72,7 +72,7 @@
                             
               <h5 class="article_date" th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
               
-            
+            <figure class="beer-img"><img th:src="${review.beer.imgUrl}" alt="user submitted image of beer"></figure>
          
               </div>
   

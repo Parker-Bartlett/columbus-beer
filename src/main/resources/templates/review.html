@@ -56,6 +56,7 @@
                                 <h5 th:text="|Style: ${review.beer.beerType}|">Style: IPA</h5>
                                 <h5 class="article_date" th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
                             </div>
+                            <figure class="beer-img"><img th:src="${review.beer.imgUrl}" alt="user submitted image of beer"></figure>
                             <div class="article-content">
                                 <h3 th:text="${review.review}">The review is here</h3>
                             </div>
