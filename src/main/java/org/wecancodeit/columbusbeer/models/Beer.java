@@ -72,7 +72,6 @@ public class Beer {
 	
 	
 	
-	
 
 	@Override
 	public String toString() {
@@ -101,4 +100,7 @@ public class Beer {
 	public Collection<Tag> getTags() {
 		return tags;
 	}
+
+
+	
 }
