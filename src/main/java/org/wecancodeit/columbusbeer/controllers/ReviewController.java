@@ -73,5 +73,6 @@ public class ReviewController {
 		review.addComment(comment);
 		return "redirect:/review/" + id;		
 	}
+
 	
 }

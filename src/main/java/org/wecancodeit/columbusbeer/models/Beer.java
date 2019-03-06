@@ -82,7 +82,6 @@ public class Beer {
 	
 	
 	
-	
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -115,4 +114,7 @@ public class Beer {
 	public Collection<Tag> getTags() {
 		return tags;
 	}
+
+
+	
 }

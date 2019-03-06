@@ -36,8 +36,8 @@
          <div th:each="type : ${categories}">
         	<ul>
         		<li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
-        		
-        	
+
+
         	</ul>
          </div>
         </section>
@@ -46,49 +46,54 @@
         <h2 class="section-title">Latest</h2>
         <section class="section section-center">
           <div class="wrapper wrapper_article">
+
             <article th:each="review : ${reviews}">
-              
-              
+            <form th:action= "@{/deleteReview}" method="POST">
+              <input type="hidden" name="id" th:value="${review.id}">
+              <button type="submit">Remove</button>
+            </form>
+
               <a th:href="@{|review/${review.id}|}"><h2 class="article_title" th:text="${review.title}">Delicious IPA from Whylan</h2></a>
+
               <div th:switch="${review.rating}">
                 <figure class="beer-rating-icon" th:case="1"><img src="/images/1star.png"></figure>
                 <figure class="beer-rating-icon" th:case="2"><img src="/images/2star.png"></figure>
                 <figure class="beer-rating-icon" th:case="3"><img src="/images/3star.png"></figure>
                 <figure class="beer-rating-icon" th:case="4"><img src="/images/4star.png"></figure>
                 <figure class="beer-rating-icon" th:case="5"><img src="/images/5star.png"></figure>
+
               <div class="review-components">
-                
- 
-    
-            
-               
+
+
+
+
+
               <h4 class="article_beer-name" th:text="|Beer: ${review.beer.beerName}|">Beer: Chasing Mirrors</h4>
-                
-                
-                         
+
+
+
               <h4 class="article_brewery" th:text="|Brewed by: ${review.beer.brewery}|">Brewed by: Wylam</h4>
-              
-              
-             
+
                 <h5 th:text="|Style: ${review.beer.beerType}|">Style: IPA</h5>
-              
-              
-                            
+
+
+
               <h5 class="article_date" th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
-              
+  
             <figure class="beer-img"><img th:src="${review.beer.imgUrl}" alt="user submitted image of beer"></figure>
          
+
               </div>
-  
-              
+
+
               <div class="article-content">
                 <h3 th:text="${review.review}">17.6° Plato OG 1072.2 ABV 7.1%
- 
+
  IPA... Big, bold and creamy with a heavy dose of wheat and flakes backed up with an amalgam of new season tropical hop treats including Citra, Chinook, Centennial and Mosaic. Big,ripe and fleshy with a soft fruit fullness and a pulpy, whipped velvety finish. Now that you know what goes there, what’s to stop you taking it home?</h3>
               </div>
-              
-              
-              
+
+
+
             </article>
           </div>
           <!--close article wrapper-->
