@@ -29,6 +29,7 @@
 		
 		@GetMapping ("/tag/{id}")
 		public String singleTag(@PathVariable Long id, Model model) {
+			model.addAttribute("categories", categories.findAll());
 			model.addAttribute("tag", tags.findById(id).get());
 			return "tag";
 		}
