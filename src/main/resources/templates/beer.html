@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/css/homestyle.css">
+  <link rel="stylesheet" href="/css/beerstyles.css">
   <link rel="stylesheet" href="https://use.typekit.net/onm0xcg.css">
   <!--Adobe fonts: Licensed to Chad Collins 2019-->
   <title>beercolumb.us</title>
@@ -19,7 +20,7 @@
       #navbar (.nav-list) -->
   <header id="header">
     <div id="top-header">
-      <h1 class="header-branding">beercolumb.us</h1>
+      <h1 class="bold header-branding">beercolumb.us</h1>
       <ul class="log-in-list">
         <li class="log-in-list--item">Log In</button></li>
         <li class="log-in-list--item">Sign Up</li>
@@ -55,25 +56,35 @@
 
 
       <section id="center-column">
-        <h2 th:text="|${beer.beerName}, by ${beer.brewery}|" class="section-title">Default Text</h2>
         <article class="white-box">
-          <p th:text="${beer.beerName}"></p>
-          <p th:text="${beer.getBeerOverallRating()}"></p>
-          <!--<p th:each="tags live here"></p>-->
-          <ul th:each="tag : ${beer.tags}"> 
-            <li><a th:href="@{|~/tag/${tag.id}|}" th:text="${tag.tagName}"></a></li>
-          </ul>
-          <form class="tag-form" th:action="|/beer/${beer.id}|" method="POST">
-            <li class="form-list--item">
-              <p>Tasting note:</p>
-            </li>
-            <li class="form-list--item"><input type="text" name="tagName"></p>
-            </li>
-            <li class="form-list--item"> <button type="submit">Submit</button></li>
-          </form>
+          <div class="two-column grid">
+            <div class="grid--left">
+              <h1 th:text="${beer.beerName}" class="section-title">Default Text</h1>
+              <h2 th:text="|Brewed by: ${beer.brewery}|">Brewed by: Wylam</h2>
+              <h2 th:text="|Style: ${beer.beerType}|">Style: IPA</h2>
+              <h2>Overall Rating:</h2>
+              <h2 class="bold" th:text="${beer.beerOverallRating}"></h2>
+              <!--<p th:each="tags live here"></p>-->
+              <form class="tag-form" th:action="|/beer/${beer.id}|" method="POST">
+                <li class="form-list--item">
+                  <p>Add a tag:</p>
+                </li>
+                <li class="form-list--item"><input class="review-input" type="text" placeholder="hoppy, citrus, etc."
+                    name="tagName"></p>
+                </li>
+                <li class="form-list--item"> <button type="submit">Submit</button></li>
+              </form>
+            </div>
+          <!--two-column-grid-->
+          <div class="grid--right">
+            <ul th:each="tag : ${beer.tags}">
+              <li><a th:href="@{|~/tag/${tag.id}|}" th:text="${tag.tagName}"></a></li>
+            </ul>
+          </div>
+          <!--end two-column-grid-->
         </article>
         <div class="column-reverse">
-          <article class="white-box" th:each="review : ${reviews}">
+          <article class="white-box" th:each="review : ${beer.reviews}">
             <h2 class="article-header" th:text="${review.beer.beerName}">Chasing Mirrors</h2>
             <div class="two-column grid">
               <div class="grid--left">
@@ -88,7 +99,7 @@
                   <figure class="beer-rating-icon" th:case="4"><img src="/images/4star.png"></figure>
                   <figure class="beer-rating-icon" th:case="5"><img src="/images/5star.png"></figure>
                 </div>
-                <a class="article-subheader" th:href="@{|review/${review.id}|}">
+                <a class="article-subheader" th:href="@{|~/review/${review.id}|}">
                   Read Full Review</a>
               </div>
 
