@@ -42,13 +42,12 @@ public class ReviewController {
 
 	@PostMapping("/submit")
 	public String reviewSubmit(Beer beer, String review, String title, String date, int rating, String type,
-			String beerName, String beerType, String brewery, String imgUrl, String tags) {
+		String beerName, String beerType, String brewery, String imgUrl, String tags) {
 		Category categoryToMake = categories.findByBeerType(beerType);
 		if (categoryToMake == null) {
 			categoryToMake = categories.save(new Category(beerType));
 		}
 		categoryToMake = categories.save(categoryToMake);
-
 		Beer beerToMake = beers.findByBeerNameAndBrewery(beerName, brewery);
 		if (beerToMake == null) {
 			beerToMake = beers.save(new Beer(beerName, categoryToMake, brewery, imgUrl));
@@ -65,14 +64,11 @@ public class ReviewController {
 		return "review";
 	}
 	
-	// after submit is hit, redirects to review
 	@PostMapping("/{id}")
 	public String commentSubmit(@PathVariable Long id, String userComment) {
 		Review review= reviews.findById(id).get();
 		Comment comment= comments.save(new Comment(userComment, review));
 		review.addComment(comment);
 		return "redirect:/review/" + id;		
-	}
-
-	
+	}	
 }

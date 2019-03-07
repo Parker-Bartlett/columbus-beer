@@ -42,7 +42,6 @@ public class BeerController {
 		Tag tagToSave = tags.findByTagName(tagName);
 		Beer beer = beers.findById(id).get();
 		
-		
 		if(tagToSave == null) {
 			tagToSave = tags.save(new Tag(tagName));
 		} 

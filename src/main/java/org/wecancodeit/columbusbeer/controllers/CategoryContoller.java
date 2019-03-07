@@ -14,6 +14,7 @@ import org.wecancodeit.columbusbeer.repositories.ReviewsRepository;
 @Controller
 @RequestMapping("/category")
 public class CategoryContoller {
+	
 	@Resource
 	ReviewsRepository reviews;
 	@Resource
@@ -21,19 +22,17 @@ public class CategoryContoller {
 	@Resource
 	CategoriesRepository categories;
 
-	
 	@RequestMapping("")
 	public String viewCategory(Model model) {
-	model.addAttribute("categories", categories.findAll());
-	return "/category";
+		model.addAttribute("categories", categories.findAll());
+		return "/category";
 	}
 	
-@GetMapping("/{id}")
-public String findOneCategory (@PathVariable Long id, Model model) {
-	model.addAttribute("category" , categories.findById(id).get());
-	model.addAttribute("categories", categories.findAll());
-	return "category";
-	
-}
+	@GetMapping("/{id}")
+	public String findOneCategory (@PathVariable Long id, Model model) {
+		model.addAttribute("category" , categories.findById(id).get());
+		model.addAttribute("categories", categories.findAll());
+		return "category";
+	}
 
 }	
