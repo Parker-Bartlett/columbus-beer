@@ -1,193 +1,227 @@
-@import url("https://use.typekit.net/onm0xcg.css");
-*{
-   
-margin:0;
-font-family: acumin-pro, sans-serif;
-font-weight: 400;
-font-style: normal;
-padding: 0;
+/*------------------------------------------------------------------
+[Table of contents]
+#. Style Guide
+1. Universal Styles
+2. Header / #header, #navbar
+3. Body
+4. Box Content
+5. Footer / #footer
+-------------------------------------------------------------------
+# [Style Guide]
 
+  # [Fonts]
+
+    # [Body Font]
+      # font-family: proxima-nova, sans-serif;
+      # font-style: normal;   
+      # font-weight: 400;
+    #
+  #
+
+  # [Color codes]
+    # Red (Header BG, H2 Titles) #B90504
+    # Dark Gray (Navbar BG, Body Text)  #333333
+    # White (Nav Links, Column BG) #ffffff
+    # Light Gray (Background): #666666
+    # Dark Red (Footer) #990100
+  #
+#
+-------------------------------------------------------------------*/
+
+
+/*-----------------
+1. UNIVERSAL STYLES
+-----------------*/
+
+*{
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;   
+  font-weight: 400;
+  margin:0;
+  padding: 0;
 }
 
-
 a{
-  text-decoration: none;
-  
+  text-decoration: none;  
 }
 
 body{
-   background-color: #E8E8E8;
+  background-color: #E8E8E8;
+  color: #333;
 }
 
 li{
   list-style: none;
 }
-header{
-  
+
+.bold{
+  font-weight: 700;
+}
+
+
+/*--------------
+2. HEADER ******
+--------------*/
+
+#header{
   position: fixed; 
-  width: 100%; 
   top: 0; 
+  width: 100%; 
 }
 
-.header__main{
-  text-align: center;
-  background: #B90504;
-  display: flex;
-  flex-direction: row;
-  height: 4rem;
-  justify-content: space-between;
-  margin-right: 1.5rem;
-  width: 100%;
-  top: 0;
-}
+  #top-header, #navbar{
+    box-shadow: 0 4px 7px rgba(0,0,0, 0.4); 
+    display: flex;
+    height: 4rem;
+    justify-content: space-between;
+    text-align: center;
+  }
 
-.header__nav{
-  display: flex;
-  justify-content: space-between;
-  background-color: #333333;
-  height: 3rem;
-  padding-top: 5px;
-  padding-bottom: 8px;
+  #top-header{
+    background-color: #B90504;
+  }
 
-box-shadow: 0 4px 7px rgba(0,0,0, 0.4); 
   
-}
-
-.nav-list{
-  margin-left: 1rem;
-  margin-top: 0.6em;
+  #navbar{
+    background-color: #333333;  
+  }
   
+
+  .header-branding{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .nav-list{
+    margin-left: 1rem;
+    align-self: center;
+  }
+  
+
+  .log-in-list, .nav-list{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .log-in-list--item, .nav-list--item a{
+    color: white;
+    margin: auto;
+    margin-right: 1.5rem;
+  }
+
+  .nav-list--item:last-child{
+    margin-right: 0rem;
+  }
+  
+  
+  /*--------------
+  3. BODY
+  --------------*/
+
+@media(max-width: 950px){
+  .sidebar{
+    display: none;
+  }
+  .three-column{
+    margin-top: 10rem;
+    display: flex;
+  }
+   
 }
-
-.nav-list_item a{
-  color: white;
-  margin-right: 1rem;
+@media(min-width: 951px){
+  .three-column{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-column-gap: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    margin-top: 10rem;    
+  }
 }
-
-
-
-
-.branding{
-  margin-left: 1rem;
-  margin-top: 0.5rem;
-}
-
-
-.log-in-list{
+  
+.column-reverse{
   display: flex;
-}
-
-.log-in-list_item{
-   color: white;
-   margin: auto;
-   margin-right: 1rem;
-}
-
-.nav-list{ 
- display: flex;
- flex-direction: row;
- justify-content: space-around;
-}
-
-.nav-list_item{
-  margin-right: 1.5rem;
-}
-.nav-list_item:last-child{
-  margin-right: 0rem;
+  flex-direction: column-reverse;
 }
 
 
+/*--------------
+4. Box Content
+--------------*/
 
-.grid_container{
-  
-  display: grid;
-  grid-column-gap: 2rem;
-  grid-template-columns: 1fr 3fr 1fr;
-  margin: 2rem;
-  margin-top: 12rem;
- 
+.white-box{
+  background-color: #F6F6F6;
+  box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
+  margin-bottom: 0.7rem;  
+  padding: 1.3rem;
 }
 
 .section-title{
-  margin-left: 0.3rem;
-  margin-bottom: 0.3rem;
-  font-size: 1.8rem;
+  color:#B90504;
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
 }
 
-
-.section{  
-}
-
-
-.wrapper_article{
+.two-column{
   display: flex;
-  flex-direction: column-reverse;
-
-  
-}
-
-
-
-
-article{
- background-color: #F6F6F6;
-margin-bottom: 1rem;
-padding: 2em;
-border-radius: 10px;
-box-shadow: 0 2px 2px rgba(0,0,0, 0.2); 
-  
-}
-
-.sidebar{
- background: #F6F6F6;
-border-radius: 10px;
-padding: 3rem;
-border-radius: 10px;
-box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
-  
-}
-
-
-
-.section-center{
-
-  
-}
-
-
-footer{
-  position: fixed;
-  bottom: 0%;
-  background: #990100;
-  height: 2rem;
-  width: 100%;
- 
-}
-
-
-.review-components{
-  display: grid;
- 
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 10px;
+  justify-content: space-between;
   margin-bottom: 20px;
-  
-  
-  
 }
 
-
-.article-content{
-  text-align: justify;
+.article-header{
+  font-size: 3rem;
 }
+
+.article-subheader{
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.beer-img img, .beer-rating-icon img{
+  height: auto;
+  margin-top: 1rem;
+  width:150px;
+} 
 
 .beer-img img{
-  width:150px;
-  height: auto;
+  box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
 }
 
-.beer-rating-icon img{
-  width:150px;
-  height: auto;
+.article-footer{
+  align-items: baseline;
+  height: 3rem;
+  margin-top: 1rem;
+}
 
+.fading-button{
+  background: none;
+  border: 0;
+  margin: 0;
+  opacity: 0.5;
+  padding: 0;
+}
+
+.fading-button:hover {
+  opacity: 1;
+}
+
+button img{
+  height: 20px;
+  width: auto;
+}
+
+.sidebar .white-box{
+  padding-bottom: 1.3rem;
+}
+
+/*--------------
+3. FOOTER
+--------------*/
+
+footer{
+  background: #990100;
+  bottom: 0%;
+  height: 2rem;
+  position: fixed;
+  width: 100%;
 }

@@ -6,86 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/homestyle.css">
+    <link rel="stylesheet" href="https://use.typekit.net/onm0xcg.css">
+    <!--Adobe fonts: Licensed to Chad Collins 2019-->
     <title>LoremBeer</title>
 </head>
 
 <body>
-    <header>
-        <div class="header__main">
-            <div class="branding">
-                <h1>beercolumb.us</h1>
-            </div>
+
+    <!--FIXED DOUBLE HEADER AREA
+      #top-header (.branding, .log-in-list)
+      #navbar (.nav-list) -->
+    <header id="header">
+        <div id="top-header">
+            <h1 class="header-branding">beercolumb.us</h1>
             <ul class="log-in-list">
-                <li class="log-in-list_item">Log In</button></li>
-                <li class="log-in-list_item">Sign Up</li>
+                <li class="log-in-list--item">Log In</button></li>
+                <li class="log-in-list--item">Sign Up</li>
             </ul>
         </div>
-        <div class="header__nav">
+        <!--Close top-header-->
+
+        <div id="navbar">
             <ul class="nav-list">
-                <li class="nav-list_item"><a href="/">Home</a></li>
-                <li class="nav-list_item"><a href="/">Reviews</a></li>
-                <li class="nav-list_item"><a href="/review/submit">Submit Review</a></li>
+                <li class="nav-list--item"><a href="/">Home</a></li>
+                <li class="nav-list--item"><a href="/">Reviews</a></li>
+                <li class="nav-list--item"><a href="/review/submit">Submit Review</a></li>
             </ul>
-            <input type="text" placeholder="Search...">
         </div>
+        <!--Close navbar-->
     </header>
+
     <main>
-        <div class="container grid_container">
-            <div class="box left">
-                <h2 class="section-title">
-                    Popular Styles</h2>
-                <section class="sidebar sidebar_left">
-                    <div th:each="type : ${categories}">
-                        <ul>
-                            <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
-                        </ul>
+        <!--MAIN BODY THREE COLUMN GRID
+      #left-column(Popular Styles)
+      #center-column
+      #right-column -->
+        <div class="three-column grid">
+            <section id="left-column" class="sidebar">
+                <h2 class="bold section-title">Popular Styles</h2>
+                <div class="white-box">
+                    <ul th:each="type : ${categories}">
+                        <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
+                    </ul>
+                </div>
+            </section>
+            <!--Close left-column-->
+
+            <section id="center-column">
+                <h2 class="bold section-title">Review</h2>
+                <article class="white-box">
+                    <h1 class="article-header" th:text="${review.title}">Fabulous Beer that I had!</h1>
+                    <h2 class="bold article-subheader" th:text="${review.beer.beerName}">Beer: Chasing Mirrors</h2>
+                    <h3 th:text="|Brewed by: ${review.beer.brewery}|">Brewed by:Wylam</h3>
+                    <h4 th:text="|Style: ${review.beer.beerType}|">Style: IPA</h4>
+                    <h5 th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
+                    <!--beer rating icon-->
+                    <div th:switch="${review.rating}">
+                        <figure class="beer-rating-icon" th:case="1"><img src="/images/1star.png"></figure>
+                        <figure class="beer-rating-icon" th:case="2"><img src="/images/2star.png"></figure>
+                        <figure class="beer-rating-icon" th:case="3"><img src="/images/3star.png"></figure>
+                        <figure class="beer-rating-icon" th:case="4"><img src="/images/4star.png"></figure>
+                        <figure class="beer-rating-icon" th:case="5"><img src="/images/5star.png"></figure>
                     </div>
-                </section>
-            </div>
-            <div class="box center">
-                <h2 class="section-title" th:text="${review.title}">Latest</h2>
-                <section class="section section-center">
-                    <div class="wrapper wrapper_article">
-                        <article>
-                            <h1 class="beer-rating" th:text="${review.rating}">* * * * *</h1>
-                            <div class="review-components">
-                                <h4 class="article_beer-name" th:text="|Beer: ${review.beer.beerName}|">Beer: Chasing
-                                    Mirrors</h4>
-                                <h4 class="article_brewery" th:text="|Brewed by: ${review.beer.brewery}|">Brewed by:
-                                    Wylam</h4>
-                                <h5 th:text="|Style: ${review.beer.beerType}|">Style: IPA</h5>
-                                <h5 class="article_date" th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
-                            </div>
-                            <figure class="beer-img"><img th:src="${review.beer.imgUrl}" alt="user submitted image of beer"></figure>
-                            <div class="article-content">
-                                <h3 th:text="${review.review}">The review is here</h3>
-                            </div>
-                            <div class="comment-area">
+                    <figure class="beer-img"><img th:src="${review.beer.imgUrl}" alt="user submitted image of beer">
+                    </figure>
+                    <div class="article-content">
+                        <p class="article-body" th:text="${review.review}">The review is here</h3>
+                            <div class="article-footer">
                                 <form class="create-comment" th:action="|/review/${review.id}|" method="POST">
-                                    <h2>Comment</h2>
-                                    <input type="text" name="userComment">
+                                    <input type="text" name="userComment" placeholder="Leave a comment.">
                                     <button type="submit">Submit</button>
                                 </form>
                             </div>
-                        </article>
+                </article>
 
-                    </div>
-                    <article th:each="comment : ${review.comments}"> 
+                <div class="column-reverse">
+                    <article class="white-box" th:each="comment : ${review.comments}">
                         <p th:text="${comment.comment}"></p>
-
                     </article>
-                    <!--close article wrapper-->
-                </section>
-            </div>
+                </div>
+            </section>
+            <!--Close center-column-->
 
-            <div class="box right">
-                <h2 class="section-title">Stuff Right</h2>
-                <section class="sidebar sidebar_right">
-                    Right
-                </section>
-            </div>
+            <section id="right-column" class="sidebar">
+                <h2 class="bold section-title">Stuff Right</h2>
+                <div class="white-box">
+                    <p>Right</p>
+                </div>
+            </section>
         </div>
-        <footer>footer</footer>
+        <!--Close three-column-grid-->
+
+        <footer><small>footer</small></footer>
     </main>
 </body>
 
