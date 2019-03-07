@@ -60,11 +60,7 @@ public class Review {
 		return id;
 	}
 
-
-
 	public void addComment(Comment comment) {
 		comments.add(comment);
 	}
-
-
 }

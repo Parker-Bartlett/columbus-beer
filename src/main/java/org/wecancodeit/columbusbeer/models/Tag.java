@@ -13,22 +13,18 @@ public class Tag {
 	@GeneratedValue
 	private Long id;
 	private String tagName;
-	
-
-	public Collection<Beer> getBeers() {
-		return beers;
-	}
-
 	@ManyToMany (mappedBy="tags")
 	private Collection<Beer> beers;
 	
 	public Tag() {}
 	
 	public Tag(String stringOfTags) {
-		this.tagName = stringOfTags;
-		
+		this.tagName = stringOfTags;		
 	}
 	
+	public Collection<Beer> getBeers() {
+		return beers;
+	}
 	
 	public String getTagName() {
 		return tagName;
@@ -45,9 +41,5 @@ public class Tag {
 	@Override
 	public String toString() {
 		return "Tag [id=" + id + ", stringOfTags=" + tagName + "]";
-	}
-	
-	
-	
-	
+	}	
 }

@@ -14,20 +14,17 @@ public class Category {
 	@GeneratedValue
 	private Long id;
 	private String beerType;
-	
 	@OneToMany(mappedBy="category")
 	private Collection<Beer> beers;
 	
-	
 	public Category() {}
 	
-	public Collection<Beer> getBeers() {
-		return beers;
+	public Category(String beerType) {
+		this.beerType = beerType;
 	}
 
-	public Category(String beerType) {
-		
-		this.beerType = beerType;
+	public Collection<Beer> getBeers() {
+		return beers;
 	}
 
 	public Long getId() {
@@ -42,7 +39,4 @@ public class Category {
 	public String toString() {
 		return "Category [id=" + id + ", beerType=" + beerType + "]";
 	}
-	
-	
-
 }

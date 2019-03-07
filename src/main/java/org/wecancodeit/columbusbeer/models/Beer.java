@@ -11,7 +11,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
 @Entity
 public class Beer {
 	
@@ -34,23 +33,7 @@ public class Beer {
 	private Collection<Tag> tags;
 	
 	
-	public Long getId() {
-		return id;
-	}
-
-
-	public Category getCategory() {
-		return category;
-	}
-
-
-	public Collection<Review> getReviews() {
-		return reviews;
-	}
-
-
-	public Beer() {}
-	
+	public Beer() {}	
 	
 	public Beer(String beerName, Category category, String brewery, String imgUrl, Tag ...tags) {
 		this.beerName = beerName;
@@ -60,12 +43,22 @@ public class Beer {
 		this.tags = Arrays.asList(tags);
 		
 	}
+	
+	public Long getId() {
+		return id;
+	}
 
+	public Category getCategory() {
+		return category;
+	}
+
+	public Collection<Review> getReviews() {
+		return reviews;
+	}
 
 	public String getImgUrl() {
 		return imgUrl;
 	}
-
 
 	public String getBeerName() {
 		return beerName;
@@ -80,21 +73,6 @@ public class Beer {
 		return brewery;
 	}
 	
-	
-	
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Beer [id=" + id + ", beerName=" + beerName + ", brewery=" + brewery + ", beerOverallRating="
-				+ beerOverallRating + ", imgUrl=" + imgUrl + ", category=" + category + ", reviews=" + reviews
-				+ ", tags=" + tags + "]";
-	}
-	
-
-	
 	public float getBeerOverallRating() {
 		float sum = 0;
 		for(Review review : reviews) {	
@@ -103,18 +81,19 @@ public class Beer {
 		float beerOverallRating = (sum / reviews.size());
 		return beerOverallRating;
 	}
-
-
-	public void addTagToTags(Tag tag) {
-		tags.add(tag);
-	}
 	
-	
-
 	public Collection<Tag> getTags() {
 		return tags;
 	}
-
-
 	
+	public void addTagToTags(Tag tag) {
+		tags.add(tag);
+	}	
+	
+	@Override
+	public String toString() {
+		return "Beer [id=" + id + ", beerName=" + beerName + ", brewery=" + brewery + ", beerOverallRating="
+				+ beerOverallRating + ", imgUrl=" + imgUrl + ", category=" + category + ", reviews=" + reviews
+				+ ", tags=" + tags + "]";
+	}	
 }
