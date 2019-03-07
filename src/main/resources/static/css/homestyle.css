@@ -13,7 +13,7 @@
 
     # [Body Font]
       # font-family: proxima-nova, sans-serif;
-      # font-style: normal;   
+      # font-style: normal;
       # font-weight: 400;
     #
   #
@@ -35,14 +35,14 @@
 
 *{
   font-family: proxima-nova, sans-serif;
-  font-style: normal;   
+  font-style: normal;
   font-weight: 400;
   margin:0;
   padding: 0;
 }
 
 a{
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 body{
@@ -64,13 +64,14 @@ li{
 --------------*/
 
 #header{
-  position: fixed; 
-  top: 0; 
-  width: 100%; 
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
 }
 
   #top-header, #navbar{
-    box-shadow: 0 4px 7px rgba(0,0,0, 0.4); 
+    box-shadow: 0 4px 7px rgba(0,0,0, 0.4);
     display: flex;
     height: 4rem;
     justify-content: space-between;
@@ -81,11 +82,11 @@ li{
     background-color: #B90504;
   }
 
-  
+
   #navbar{
-    background-color: #333333;  
+    background-color: #333333;
   }
-  
+
 
   .header-branding{
     margin-left: 1rem;
@@ -96,7 +97,7 @@ li{
     margin-left: 1rem;
     align-self: center;
   }
-  
+
 
   .log-in-list, .nav-list{
     display: flex;
@@ -112,8 +113,8 @@ li{
   .nav-list--item:last-child{
     margin-right: 0rem;
   }
-  
-  
+
+
   /*--------------
   3. BODY
   --------------*/
@@ -126,7 +127,7 @@ li{
     margin-top: 10rem;
     display: flex;
   }
-   
+
 }
 @media(min-width: 951px){
   .three-column{
@@ -135,10 +136,10 @@ li{
     grid-column-gap: 2rem;
     max-width: 1600px;
     margin: 0 auto;
-    margin-top: 10rem;    
+    margin-top: 10rem;
   }
 }
-  
+
 .column-reverse{
   display: flex;
   flex-direction: column-reverse;
@@ -152,7 +153,7 @@ li{
 .white-box{
   background-color: #F6F6F6;
   box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
-  margin-bottom: 0.7rem;  
+  margin-bottom: 0.7rem;
   padding: 1.3rem;
 }
 
@@ -181,7 +182,7 @@ li{
   height: auto;
   margin-top: 1rem;
   width:150px;
-} 
+}
 
 .beer-img img{
   box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
