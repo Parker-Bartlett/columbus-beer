@@ -6,114 +6,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/css/homestyle.css">
+  <link rel="stylesheet" href="https://use.typekit.net/onm0xcg.css">
+  <!--Adobe fonts: Licensed to Chad Collins 2019-->
   <title>LoremBeer</title>
 </head>
 
 <body>
-  <header>
-    <div class="header__main">
-      <div class="branding">
-        <h1>beercolumb.us</h1>
-      </div>
+
+
+  <!--FIXED DOUBLE HEADER AREA
+      #top-header (.branding, .log-in-list)
+      #navbar (.nav-list) -->
+  <header id="header">
+    <div id="top-header">
+      <h1 class="header-branding">beercolumb.us</h1>
       <ul class="log-in-list">
-        <li class="log-in-list_item">Log In</button></li>
-        <li class="log-in-list_item">Sign Up</li>
+        <li class="log-in-list--item">Log In</button></li>
+        <li class="log-in-list--item">Sign Up</li>
       </ul>
     </div>
-    <div class="header__nav">
+    <!--Close top-header-->
+
+    <div id="navbar">
       <ul class="nav-list">
-        <li class="nav-list_item"><a href="/">Home</a></li>
-        <li class="nav-list_item"><a href="/">Reviews</a></li>
-        <li class="nav-list_item"><a href="/review/submit">Submit Review</a></li>
+        <li class="nav-list--item"><a href="/">Home</a></li>
+        <li class="nav-list--item"><a href="/">Reviews</a></li>
+        <li class="nav-list--item"><a href="/review/submit">Submit Review</a></li>
       </ul>
     </div>
+    <!--Close navbar-->
   </header>
+
   <main>
-    <div class="container grid_container">
-      <div class="box left">
-        <h2 class="section-title">
-          Popular Styles</h2>
-        <section class="sidebar sidebar_left">
-          <div th:each="type : ${categories}">
-            <ul>
-              <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
+    <!--MAIN BODY THREE COLUMN GRID
+      #left-column(Popular Styles)
+      #center-column
+      #right-column -->
+    <div class="three-column grid">
+      <section id="left-column" class="sidebar">
+        <h2 class="bold section-title">Popular Styles</h2>
+        <div class="white-box">
+          <ul th:each="type : ${categories}">
+            <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
+          </ul>
+        </div>
+      </section>
+      <!--Close left-column-->
 
 
-            </ul>
-          </div>
-        </section>
-      </div>
-      <div class="box center">
-        <h2 class="section-title">Latest</h2>
-        <section class="section section-center">
-          <div class="wrapper wrapper_article">
+      <section id="center-column">
+        <h2 class="bold section-title">Latest Reviews</h2>
+        <div class="column-reverse">
+          <article class="white-box" th:each="review : ${reviews}">
 
-            <article th:each="review : ${reviews}">
+
+            <h2 class="article-header" th:text="${review.beer.beerName}">Chasing Mirrors</h2>
+            <div class="two-column grid">
+              <div class="grid--left">
+                <h3 th:text="|Brewed by: ${review.beer.brewery}|">Brewed by: Wylam</h3>
+                  <h4 th:text="|Style: ${review.beer.beerType}|">Style: IPA</h4>
+                    <h3 th:text="${review.title}">Delicious IPA from Whylan</h3>
+                    <!--beer rating icon-->
+                    <div th:switch="${review.rating}">
+                      <figure class="beer-rating-icon" th:case="1"><img src="/images/1star.png"></figure>
+                      <figure class="beer-rating-icon" th:case="2"><img src="/images/2star.png"></figure>
+                      <figure class="beer-rating-icon" th:case="3"><img src="/images/3star.png"></figure>
+                      <figure class="beer-rating-icon" th:case="4"><img src="/images/4star.png"></figure>
+                      <figure class="beer-rating-icon" th:case="5"><img src="/images/5star.png"></figure>
+                    </div>
+                    <a class="article-subheader" th:href="@{|review/${review.id}|}">
+                      Read Full Review</a>
+              </div>
+
+              <div class="grid--right">
+                <figure class="beer-img"><img th:src="${review.beer.imgUrl}" alt="user submitted image of beer">
+                </figure>
+              </div>
+            </div>
+            <!--close two-column-grid-->
+            <div class="two-column article-footer">
+
+
+              <!--delete review form button-->
               <form th:action="@{/deleteReview}" method="POST">
                 <input type="hidden" name="id" th:value="${review.id}">
-                <button type="submit">Remove</button>
+                <button class="fading-button" type="submit"><img src="/images/delete-icon.svg" alt="submit" /></button>
+                <small>Permanently delete this review</small>
               </form>
+            </div>
 
-              <a th:href="@{|review/${review.id}|}">
-                <h2 class="article_title" th:text="${review.title}">Delicious IPA from Whylan</h2>
-              </a>
-
-              <div th:switch="${review.rating}">
-                <figure class="beer-rating-icon" th:case="1"><img src="/images/1star.png"></figure>
-                <figure class="beer-rating-icon" th:case="2"><img src="/images/2star.png"></figure>
-                <figure class="beer-rating-icon" th:case="3"><img src="/images/3star.png"></figure>
-                <figure class="beer-rating-icon" th:case="4"><img src="/images/4star.png"></figure>
-                <figure class="beer-rating-icon" th:case="5"><img src="/images/5star.png"></figure>
-
-                <div class="review-components">
-
-
-
-
-
-                  <h4 class="article_beer-name" th:text="|Beer: ${review.beer.beerName}|">Beer: Chasing Mirrors</h4>
-
-
-
-                  <h4 class="article_brewery" th:text="|Brewed by: ${review.beer.brewery}|">Brewed by: Wylam</h4>
-
-                  <h5 th:text="|Style: ${review.beer.beerType}|">Style: IPA</h5>
-
-
-
-                  <h5 class="article_date" th:text="|Date drank: ${review.date}|">Date drank: 1/21/19</h5>
-
-                  <figure class="beer-img"><img th:src="${review.beer.imgUrl}" alt="user submitted image of beer">
-                  </figure>
-
-
-                </div>
-
-
-                <div class="article-content">
-                  <h3 th:text="${review.review}">17.6° Plato OG 1072.2 ABV 7.1%
-
-                    IPA... Big, bold and creamy with a heavy dose of wheat and flakes backed up with an amalgam of new
-                    season tropical hop treats including Citra, Chinook, Centennial and Mosaic. Big,ripe and fleshy with
-                    a soft fruit fullness and a pulpy, whipped velvety finish. Now that you know what goes there, what’s
-                    to stop you taking it home?</h3>
-                </div>
-
-
-
-            </article>
-          </div>
-          <!--close article wrapper-->
-        </section>
-      </div>
-      <div class="box right">
-        <h2 class="section-title">Stuff Right</h2>
-        <section class="sidebar sidebar_right">
-          Right
-        </section>
-      </div>
+          </article>
+        </div>
+      </section>
+      <!--Close center-column-->
+   
+      <section id="right-column" class="sidebar">
+        <h2 class="bold section-title">Stuff Right</h2>
+        <div class="white-box">
+          <p>Right</p>
+        </div>
+      </section>
     </div>
-    <footer>footer</footer>
+    <!--Close three-column-grid-->
+
+    <footer><small>footer</small></footer>
   </main>
 </body>
 

@@ -1,129 +1,160 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Review Submission</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
-    <link rel="stylesheet" href="/css/reviewform.css">
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/homestyle.css">
+  <link rel="stylesheet" href="/css/reviewform.css">
+  <link rel="stylesheet" href="https://use.typekit.net/onm0xcg.css">
+  <!--Adobe fonts: Licensed to Chad Collins 2019-->
+  <title>LoremBeer</title>
 </head>
 
 <body>
-    <header>
-        <div class="header__main">
-            <div class="branding">
-                <h1>loremBeer</h1>
-            </div>
-            <ul class="log-in-list">
-                <li class="log-in-list_item">Log In</li>
-                <li class="log-in-list_item">Sign Up</li>
-            </ul>
+
+
+  <!--FIXED DOUBLE HEADER AREA
+      #top-header (.branding, .log-in-list)
+      #navbar (.nav-list) -->
+  <header id="header">
+    <div id="top-header">
+      <h1 class="header-branding">beercolumb.us</h1>
+      <ul class="log-in-list">
+        <li class="log-in-list--item">Log In</button></li>
+        <li class="log-in-list--item">Sign Up</li>
+      </ul>
+    </div>
+    <!--Close top-header-->
+
+    <div id="navbar">
+      <ul class="nav-list">
+        <li class="nav-list--item"><a href="/">Home</a></li>
+        <li class="nav-list--item"><a href="/">Reviews</a></li>
+        <li class="nav-list--item"><a href="/review/submit">Submit Review</a></li>
+      </ul>
+    </div>
+    <!--Close navbar-->
+  </header>
+
+  <main>
+    <!--MAIN BODY THREE COLUMN GRID
+      #left-column(Popular Styles)
+      #center-column
+      #right-column -->
+    <div class="three-column grid">
+      <section id="left-column" class="sidebar">
+        <h2 class="bold section-title">Popular Styles</h2>
+        <div class="white-box">
+          <ul th:each="type : ${categories}">
+            <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
+          </ul>
         </div>
-
-        <div class="header__nav">
-            <ul class="nav-list">
-                <li class="nav-list_item"><a href="/">Home</a></li>
-                <li class="nav-list_item"><a href="/">Reviews</a></li>
-                <li class="nav-list_item"><a href="/review/submit">Submit Review</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main>
-
-        <div class="container grid_container">
-          <div class="box left">
-            <h2 class="section-title">
-            Popular Styles</h2>
-            <section class="sidebar sidebar_left">
-              <div th:each="type : ${categories}">
-        	<ul>
-        		<li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
-        		
-        	
-        	</ul>
-         </div>
-          </section>
-      </div>
-      <div class="box center">
-        <h2 class="section-title">Create your review</h2>
-        <section class="section section-center">
-          <div class="wrapper wrapper_article">
-            <article class="article form">
+      </section>
+      <!--Close left-column-->
+      <section id="center-column">
+        <h2 class="bold section-title">Submit a Review</h2>
+        <div class="column-reverse">
+          <article class="white-box">
             <form action="/review/submit" method="POST">
-              
-   <ul class ="form-list">
-     <div class="margin-bottom"> 
+              <ul class="form-list">
+                <div class="margin-bottom">
+                  <li class="form-list--item">
+                    <p>BEER NAME</p>
+                  </li>
+                  <li class="form-list--item"><input class="review-input" type="text" placeholder="ex: Greenskeeper"
+                      name="beerName">
+                  </li>
+                </div>
+                <div class="margin-bottom">
+                  <li class="form-list--item">
+                    <p>BREWERY</p>
+                  </li>
+                  <li class="form-list--item"><input type="text" placeholder="ex: Land Grant Brewing" name="brewery">
+                    </p>
+                  </li>
+                </div>
 
-     <li class="form-list--item"> <p>BEER NAME</li> 
-     <li class="form-list--item"><input class="review-input" type="text" placeholder="ex: Greenskeeper" name="beerName"></p> </li>
-     </div>
-              <div class="margin-bottom">
-              <li class="form-list--item"><p>BREWERY</li>
-              <li class="form-list--item"><input type="text" placeholder="ex: Land Grant Brewing" name="brewery"></p></li>
-              </div>
+                <div class="margin-bottom">
+                  <li class="form-list--item">
+                    <p>BEER STYLE</p>
+                  </li>
+                  <li class="form-list--item"><input type="text" placeholder="ex: IPA" name="beerType"></p>
+                  </li>
+                </div>
 
-              <div class="margin-bottom">
-          <li class="form-list--item"> <p>BEER STYLE </li>
-          <li class="form-list--item"><input type="text" placeholder="ex: IPA" name="beerType"></p></li>
-          </div>
-        
-              <div class="margin-bottom"> 
-          <li class="form-list--item"> <p>DATE ENJOYED </li>
-          <li class="form-list--item"><input type="date" name="date"></p></li>
-      </div>
-          
-              <div class="margin-bottom"> 
-              <li class="form-list--item"> <p>Rate this beer (5 is best):</p> </li>
-              <li class="form-list--item"><div class="row radio">
-              <p class="radio--item"><input type="radio" name="rating" value="1">1</p>
-              <p class="radio--item"><input type="radio" name="rating" value="2">2</p>
-              <p class="radio--item"><input type="radio" name="rating" value="3">3</p>
-              <p class="radio--item"><input  type="radio" name="rating" value="4">4</p>
-              <p class="radio--item"><input type="radio" name="rating" value="5">5</p>
-              
-                </div></li></div>
+                <div class="margin-bottom">
+                  <li class="form-list--item">
+                    <p>DATE ENJOYED</p>
+                  </li>
+                  <li class="form-list--item"><input type="date" name="date"></p>
+                  </li>
+                </div>
 
-            <div class="margin-bottom"> 
-              <li class="form-list--item"><p>ADD AN IMAGE</li>
-              <li class="form-list--item"><input type="text" placeholder="www.imagehost/yourimage.jpg" name="imgUrl"></p></li>
-            </div>
-                
-            
-              <div class="margin-bottom"> 
-  <li class="form-list--item"><p>TITLE</li>
-  <li class="form-list--item"><input type="text" placeholder="ex: Best beer I've ever drank!" name="title"></p></li>
-  </div>
-  <div class="margin-bottom"> 
-<li class="form-list--item"><p>Give us a summary of your experience: </li>
-<li class="form-list--item"><textarea class="input-review-body" type="text" name="review"></textarea></li>
-</div>
-                <div class="margin-bottom"> 
-     <li class="form-list--item"> <button type="submit">Submit</button></li>
-</div>
+                <div class="margin-bottom">
+                  <li class="form-list--item">
+                    <p>Rate this beer (5 is best):</p>
+                  </li>
+                  <li class="form-list--item">
+                    <div class="row">
+                      <p class="radio--item"><input type="radio" name="rating" value="1">1</p>
+                      <p class="radio--item"><input type="radio" name="rating" value="2">2</p>
+                      <p class="radio--item"><input type="radio" name="rating" value="3">3</p>
+                      <p class="radio--item"><input type="radio" name="rating" value="4">4</p>
+                      <p class="radio--item"><input type="radio" name="rating" value="5">5</p>
+
+                    </div>
+                  </li>
+                </div>
+
+                <div class="margin-bottom">
+                  <li class="form-list--item">
+                    <p>ADD AN IMAGE
+                  </li>
+                  <li class="form-list--item"><input type="text" placeholder="www.imagehost.com/yourimage.jpg"
+                      name="imgUrl"></p>
+                  </li>
+                </div>
+
+
+                <div class="margin-bottom">
+                  <li class="form-list--item">
+                    <p>TITLE
+                  </li>
+                  <li class="form-list--item"><input type="text" placeholder="ex: Best beer I've ever drank!"
+                      name="title"></p>
+                  </li>
+                </div>
+                <div class="margin-bottom">
+                  <li class="form-list--item">
+                    <p>Give us a summary of your experience:
+                  </li>
+                  <li class="form-list--item"><textarea class="input-review-body" type="text" name="review"></textarea>
+                  </li>
+                </div>
+                <div class="margin-bottom">
+                  <li class="form-list--item"> <button type="submit">Submit</button></li>
+                </div>
               </ul>
             </form>
-        </article>
+          </article>
+
         </div>
-        <!--close article wrapper-->
-    </section>
-</div>
-<div class="box right">
-    <h2 class="section-title">Stuff Right</h2>
-    <section class="sidebar sidebar_right">
-      Right
-  </section>
-</div>
-</div>
-<footer>footer</footer>
+      </section>
+      <!--Close center-column-->
 
+      <section id="right-column" class="sidebar">
+        <h2 class="bold section-title">Stuff Right</h2>
+        <div class="white-box">
+          <p>Right</p>
+        </div>
+      </section>
+    </div>
+    <!--Close three-column-grid-->
 
-
-
-
-
-</main>
-
+    <footer><small>footer</small></footer>
+  </main>
 </body>
 
 </html>
