@@ -19,7 +19,7 @@
   #
 
   # [Color codes]
-    # Red (Header BG, H2 Titles) #B90504
+    # Red (Header BG, H2 Titles, Main Li) #B90504
     # Dark Gray (Navbar BG, Body Text)  #333333
     # White (Nav Links, Column BG) #ffffff
     # Light Gray (Background): #666666
@@ -89,8 +89,11 @@ li{
 
 
   .header-branding{
+    color: #fff;
+    font-weight: 600;
     margin-left: 1rem;
     margin-top: 0.5rem;
+    font-size: 2.5rem;
   }
 
   .nav-list{
@@ -146,15 +149,21 @@ li{
 }
 
 
+main ul li a{
+    color: #B90504;
+    margin-bottom: 0.5rem;
+  }
+
 /*--------------
 4. Box Content
 --------------*/
 
 .white-box{
   background-color: #F6F6F6;
+  
   box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
   margin-bottom: 0.7rem;
-  padding: 1.3rem;
+  padding: 2rem;
 }
 
 .section-title{
@@ -164,6 +173,7 @@ li{
 }
 
 .two-column{
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -214,6 +224,7 @@ button img{
 .sidebar .white-box{
   padding-bottom: 1.3rem;
 }
+
 
 /*--------------
 3. FOOTER
