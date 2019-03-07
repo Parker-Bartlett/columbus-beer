@@ -50,7 +50,6 @@ public class BeerController {
 		beers.save(beer);
 
 		return "redirect:/beer/" +id;
-		
 	}
 	
 }

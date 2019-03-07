@@ -1,4 +1,4 @@
-package org.wecancodeit.columbusbeer.controllers;
+package org.wecancodeit.columbusbeer;
 
 import static org.junit.Assert.*;
 
