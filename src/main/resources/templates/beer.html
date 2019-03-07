@@ -60,7 +60,8 @@
           <p th:text="${beer.beerName}"></p>
           <p th:text="${beer.getBeerOverallRating()}"></p>
           <!--<p th:each="tags live here"></p>-->
-          <ul th:each="tag : ${beer.tags}" </ul> <li th:text="${tag.tagName}">beer tag</li>
+          <ul th:each="tag : ${beer.tags}"> 
+            <li><a th:href="@{|~/tag/${tag.id}|}" th:text="${tag.tagName}"></a></li>
           </ul>
           <form class="tag-form" th:action="|/beer/${beer.id}|" method="POST">
             <li class="form-list--item">

@@ -19,7 +19,7 @@ public class Tag {
 		return beers;
 	}
 
-	@ManyToMany
+	@ManyToMany (mappedBy="tags")
 	private Collection<Beer> beers;
 	
 	public Tag() {}

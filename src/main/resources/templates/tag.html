@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+
+<head>
+  <title>Review Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="/css/homestyle.css">
+
+
+</head>
+
+<body>
+  <header>
+    <div class="header__main">
+      <div class="branding">
+        <h1>loremBeer</h1>
+      </div>
+      <ul class="log-in-list">
+        <li class="log-in-list_item">Log In</li>
+        <li class="log-in-list_item">Sign Up</li>
+      </ul>
+    </div>
+
+    <div class="header__nav">
+      <ul class="nav-list">
+        <li class="nav-list_item"><a href="/">Home</a></li>
+        <li class="nav-list_item"><a href="/">Reviews</a></li>
+        <li class="nav-list_item"><a href="/review/submit">Submit Review</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="container grid_container">
+      <div class="box left">
+        <h2 class="section-title">
+          Popular Styles</h2>
+        <section class="sidebar sidebar_left">
+          <div th:each="type : ${categories}">
+            <ul>
+              <li><a th:text="${type.beerType}" th:href="@{|/category/${type.id}|}"></a></li>
+
+
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="box center">
+        <h2 th:text="${tag.tagName}" class="section-title"></h2>
+        <section class="section section-center">
+          <div class="wrapper wrapper_article">
+            <article>
+              <ul>
+                  <li th:each="beerNow : ${tag.beers}"><a th:href="@{|/beer/${beerNow.id}|}" th:text="${beerNow.beerName}"></a></li>
+                  <!-- <li th:text="${beerNow.id}"></li> -->
+              </ul>
+
+            </article>
+          </div>
+          <div class="wrapper wrapper_article"></div>
+          <!--close article wrapper-->
+        </section>
+      </div>
+      <div class="box right">
+        <h2 class="section-title">Stuff Right</h2>
+        <section class="sidebar sidebar_right">
+          Right
+        </section>
+      </div>
+    </div>
+    <footer>footer</footer>
+
+
+
+
+
+
+  </main>
+
+</body>
+
+</html>
