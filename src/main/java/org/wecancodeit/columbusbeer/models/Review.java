@@ -9,11 +9,14 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.wecancodeit.columbusbeer.repositories.CommentRepository;
+
 @Entity
 public class Review {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
 	@ManyToOne
 	private Beer beer;
 	@Lob
@@ -63,4 +66,8 @@ public class Review {
 	public void addComment(Comment comment) {
 		comments.add(comment);
 	}
+//	public void deleteComment(CommentRepository comments) {
+//
+//		comments.remove(comments);
+//	}
 }
