@@ -267,3 +267,9 @@ footer small{
   margin-left: 1rem;
 
 }
+
+
+.advertisement img{
+  width: 250px;
+  height: auto;
+}
