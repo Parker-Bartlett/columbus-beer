@@ -52,7 +52,9 @@ body{
 
 li{
   list-style: none;
+  
 }
+
 
 .bold{
   font-weight: 700;
@@ -149,10 +151,6 @@ li{
 }
 
 
-main ul li a{
-    color: #B90504;
-    margin-bottom: 0.5rem;
-  }
 
 /*--------------
 4. Box Content
@@ -245,6 +243,10 @@ input[type=text]:focus {
   margin-bottom: 2rem;
 }
 
+.advertisement img{
+  width: 250px;
+  height: auto;
+}
 
 
 /*--------------
@@ -266,10 +268,4 @@ footer small{
   color: #fff;
   margin-left: 1rem;
 
-}
-
-
-.advertisement img{
-  width: 250px;
-  height: auto;
 }
