@@ -13,13 +13,13 @@
 
     # [Body Font]
       # font-family: proxima-nova, sans-serif;
-      # font-style: normal;   
+      # font-style: normal;
       # font-weight: 400;
     #
   #
 
   # [Color codes]
-    # Red (Header BG, H2 Titles) #B90504
+    # Red (Header BG, H2 Titles, Main Li) #B90504
     # Dark Gray (Navbar BG, Body Text)  #333333
     # White (Nav Links, Column BG) #ffffff
     # Light Gray (Background): #666666
@@ -35,14 +35,14 @@
 
 *{
   font-family: proxima-nova, sans-serif;
-  font-style: normal;   
+  font-style: normal;
   font-weight: 400;
   margin:0;
   padding: 0;
 }
 
 a{
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 body{
@@ -64,13 +64,14 @@ li{
 --------------*/
 
 #header{
-  position: fixed; 
-  top: 0; 
-  width: 100%; 
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
 }
 
   #top-header, #navbar{
-    box-shadow: 0 4px 7px rgba(0,0,0, 0.4); 
+    box-shadow: 0 4px 7px rgba(0,0,0, 0.4);
     display: flex;
     height: 4rem;
     justify-content: space-between;
@@ -81,22 +82,25 @@ li{
     background-color: #B90504;
   }
 
-  
+
   #navbar{
-    background-color: #333333;  
+    background-color: #333333;
   }
-  
+
 
   .header-branding{
+    color: #fff;
+    font-weight: 600;
     margin-left: 1rem;
     margin-top: 0.5rem;
+    font-size: 2.5rem;
   }
 
   .nav-list{
     margin-left: 1rem;
     align-self: center;
   }
-  
+
 
   .log-in-list, .nav-list{
     display: flex;
@@ -112,8 +116,8 @@ li{
   .nav-list--item:last-child{
     margin-right: 0rem;
   }
-  
-  
+
+
   /*--------------
   3. BODY
   --------------*/
@@ -126,7 +130,7 @@ li{
     margin-top: 10rem;
     display: flex;
   }
-   
+
 }
 @media(min-width: 951px){
   .three-column{
@@ -135,15 +139,20 @@ li{
     grid-column-gap: 2rem;
     max-width: 1600px;
     margin: 0 auto;
-    margin-top: 10rem;    
+    margin-top: 10rem;
   }
 }
-  
+
 .column-reverse{
   display: flex;
   flex-direction: column-reverse;
 }
 
+
+main ul li a{
+    color: #B90504;
+    margin-bottom: 0.5rem;
+  }
 
 /*--------------
 4. Box Content
@@ -151,9 +160,10 @@ li{
 
 .white-box{
   background-color: #F6F6F6;
+  
   box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
-  margin-bottom: 0.7rem;  
-  padding: 1.3rem;
+  margin-bottom: 0.7rem;
+  padding: 2rem;
 }
 
 .section-title{
@@ -163,6 +173,7 @@ li{
 }
 
 .two-column{
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -181,7 +192,7 @@ li{
   height: auto;
   margin-top: 1rem;
   width:150px;
-} 
+}
 
 .beer-img img{
   box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
@@ -214,6 +225,28 @@ button img{
   padding-bottom: 1.3rem;
 }
 
+input[type=text]{
+  border: 1px;
+  box-shadow: 0 2px 2px rgba(0,0,0, 0.2); 
+  font-size: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+  transition: width 0.4s ease-in-out;
+  width: 300px;
+  -webkit-transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  max-width: 100%;
+  width: 320px;
+}
+
+.margin-bottom{
+  margin-bottom: 2rem;
+}
+
+
+
 /*--------------
 3. FOOTER
 --------------*/
@@ -221,7 +254,22 @@ button img{
 footer{
   background: #990100;
   bottom: 0%;
+  display: flex;
+  flex-direction: column;
   height: 2rem;
   position: fixed;
   width: 100%;
+  justify-content: space-around;
+}
+
+footer small{
+  color: #fff;
+  margin-left: 1rem;
+
+}
+
+
+.advertisement img{
+  width: 250px;
+  height: auto;
 }
