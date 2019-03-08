@@ -1,6 +1,6 @@
 # columbus-beer
 
-Columbus Beer is a full stack web application that uses server side rendering that allows users to rate and review local beers. 
+Columbus Beer is a full stack web application that uses server side rendering allowing users to rate and review local beers. 
 
 ## Getting Started
 
