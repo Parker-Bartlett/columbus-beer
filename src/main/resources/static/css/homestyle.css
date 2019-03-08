@@ -225,6 +225,27 @@ button img{
   padding-bottom: 1.3rem;
 }
 
+input[type=text]{
+  border: 1px;
+  box-shadow: 0 2px 2px rgba(0,0,0, 0.2); 
+  font-size: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+  transition: width 0.4s ease-in-out;
+  width: 300px;
+  -webkit-transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  max-width: 100%;
+  width: 320px;
+}
+
+.margin-bottom{
+  margin-bottom: 2rem;
+}
+
+
 
 /*--------------
 3. FOOTER
@@ -233,7 +254,22 @@ button img{
 footer{
   background: #990100;
   bottom: 0%;
+  display: flex;
+  flex-direction: column;
   height: 2rem;
   position: fixed;
   width: 100%;
+  justify-content: space-around;
+}
+
+footer small{
+  color: #fff;
+  margin-left: 1rem;
+
+}
+
+
+.advertisement img{
+  width: 250px;
+  height: auto;
 }
