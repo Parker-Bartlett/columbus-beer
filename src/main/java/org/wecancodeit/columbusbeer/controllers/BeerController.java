@@ -51,4 +51,11 @@ public class BeerController {
 		return "redirect:/beer/" +id;
 	}
 	
+	@GetMapping("/beerlist")
+	public String viewCategory(Model model) {
+		model.addAttribute("beers", beers.findAll());
+		model.addAttribute("categories", categories.findAll());
+		return "beerlist";
+	}
+	
 }
