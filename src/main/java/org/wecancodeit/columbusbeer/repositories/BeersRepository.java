@@ -9,4 +9,5 @@ public interface BeersRepository extends CrudRepository<Beer, Long> {
 
 	Beer findByBeerNameAndBrewery(String beerName, String brewery);
 
+
 }

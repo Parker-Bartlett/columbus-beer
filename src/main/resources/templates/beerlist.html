@@ -54,23 +54,24 @@
             <!--Close left-column-->
 
             <section id="center-column">
-                <h2 class="bold section-title" th:text="|${category.beerType} List|">Beer Type Header</h2>
+                <h2 class="bold section-title">All Beers</h2>
                 <div class="column-reverse">
 
                     <article class="white-box">
-                        <ul th:each="beer : ${category.beers}">
-                                <li><a th:href="@{|/beer/${beer.id}|}" th:text="|${beer.beerName}, by ${beer.brewery}|"></a></li>
+                        <ul th:each="beer : ${beers}">
+                        <li><h3><a th:text="|${beer.beerName}, by ${beer.brewery}|" th:href="@{|/beer/${beer.id}|}"></a></h3></li>
                         </ul>
+                    
                     </article>
                 </div>
             </section>
             <!--Close center-column-->
 
             <section id="right-column" class="sidebar">
-                <h2 class="bold section-title">Stuff Right</h2>
+                <h2 class="bold section-title">Our Sponsors</h2>
                 <div class="white-box">
-                        <figure class="advertisement"><img src="/images/cereal-ad.png"></figure>
-                        <small>Advertisement</small>
+                    <figure class="advertisement"><img src="/images/beer-ad.png"></figure>
+                    <small>Advertisement</small>
                 </div>
             </section>
         </div>
